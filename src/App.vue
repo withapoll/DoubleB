@@ -1,30 +1,65 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+	<div class="app">
+		<!-- Sidebar -->
+		<SideBar />
+
+		<!-- Content -->
+		<main>
+			<router-view />
+		</main>
+	</div>
 </template>
 
+<script setup>
+import SideBar from './components/SideBar.vue'
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+:root {
+	--primary: #4ade80;
+	--primary-alt: #22c55e;
+	--grey: #64748b;
+	--dark: #1e293b;
+	--dark-alt: #334155;
+	--light: #f1f5f9;
+	--sidebar-width: 300px;
 }
 
-nav {
-  padding: 30px;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+body {
+	background: var(--light);
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+button {
+	cursor: pointer;
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+}
+
+.app {
+	display: flex;
+  background-color: white;
+//   border: solid;
+//   border-color: #333;
+//   border-radius: 20px;
+
+	main {
+		flex: 1 1 0;
+		padding: 20px;
+    
+
+		@media (max-width: 768px) {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
 }
 </style>
