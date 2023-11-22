@@ -80,6 +80,12 @@
       </div>
     </div>
     </div>
+    <div class="chart">
+      hello chart
+    </div>
+    <div class="history-orders">
+      hello history orders
+    </div>
   </div>
 </template>
 
@@ -118,6 +124,28 @@
     align-items: center;
     width: fit-content;
   }
+}
+
+.chart {
+  border: 1px solid rgba(0, 0, 0, 0.20);
+  background-color: #fff;
+  border-radius: 30px;
+  width: 565px;
+  height: 180px;
+  margin-top: 32px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+}
+
+.history-orders {
+  border: 1px solid rgba(0, 0, 0, 0.20);
+  background-color: #fff;
+  border-radius: 30px;
+  width: 565px;
+  height: 180px;
+  margin-top: 15px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
 }
 
 

@@ -92,7 +92,7 @@ aside {
     display: flex;
     flex-direction: column;
     width: var(--sidebar-width);
-    height: 100vh;
+    height: 100%;
     background-color: #222;
     color: var(--light);
     overflow-y: auto;

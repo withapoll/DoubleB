@@ -54,8 +54,7 @@ button {
 	main {
 		flex: 1 1 0;
 		padding: 20px;
-    
-
+		
 		@media (max-width: 768px) {
 			padding-left: 10px;
 			padding-right: 10px;
