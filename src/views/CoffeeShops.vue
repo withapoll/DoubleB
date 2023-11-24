@@ -1,31 +1,30 @@
 <template>
   <aside>
     <div class="greeting">
-      <h1>{{greeting}}</h1>
+      <h1>{{ greeting }}</h1>
       <p>{{ description }}</p>
     </div>
     <div class="profile">
       <div class="top-icons">
-        <i class="fa-solid fa-moon"></i>
-        <i class="fa-solid fa-bell"></i>
+        <i class="fa-solid fa-moon" @click="darkModOn"></i>
+        <i class="fa-solid fa-bell" @click="showNotification"></i>
       </div>
-      <img src="@/assets/profile_pic.jpg" alt="Profile picture">
+      <img src="@/assets/profile_pic.jpg" alt="Profile picture" />
       <div class="profile-info">
         <h3>{{ username }}</h3>
         <p>{{ email }}</p>
       </div>
     </div>
   </aside>
-  <MainStatistics />
+  <ShopsStatistics />
 </template>
 
 <script setup>
-import MainStatistics from '@/components/MainStatistics.vue';
-const greeting = 'Привет, Андрей!';
-const description = 'Вот общая статистика по вашему бизнесу!';
-const username = 'Андрей Полунин';
-const email = 'polunin.bussiness@mail.com';
-
+import ShopsStatistics from "@/components/ShopsStatistics.vue";
+const greeting = "Привет, Андрей!";
+const description = "Ваша статистика по кофейням!";
+const username = "Андрей Полунин";
+const email = "polunin.bussiness@mail.com";
 </script>
 
 <style lang="scss" scoped>
@@ -38,7 +37,7 @@ aside {
 
 .greeting h1 {
   color: #000;
-  font-family: 'SONGER Condensed', sans-serif;
+  font-family: "SONGER Condensed", sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: 400;
@@ -78,7 +77,7 @@ aside {
 
 .profile-info {
   h3 {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 16px;
     color: black;
     margin-bottom: 5px;

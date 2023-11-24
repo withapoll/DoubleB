@@ -1,5 +1,5 @@
 <template>
-    <div>
+<div>
         <div class="cards">
     <div class="card">
       <div class="card_header">
@@ -81,13 +81,44 @@
     </div>
     </div>
     <div class="chart">
-      hello chart
+      <div class="chart-header">
+        Объем продаж
+      </div>
     </div>
+    <div class="week-calendar">
+      <div class="calendar-header">
+        Ноябрь 2023
+        <div class="calendar-arrows">
+        <i class="fa-solid fa-chevron-left"></i>
+        <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+    </div>
+    <div class="lil-humans">
+      <div class="human-profile">
+        <img src="@/assets/profile_pic.jpg" alt="Profile picture">
+        <div class="profile-info">
+        <h3>Полунин Андрей</h3>
+        <p>polunin.bussiness@mail.com</p>
+      </div>
+      </div>
+        <div class="human" v-for="human in humans" :key="human.id">
+          <div class="human-name">{{ human.name }}</div>
+          <div class="human-email">{{ human.email }}</div>
+        </div>
+      </div>
     <div class="history-orders">
-      hello history orders
+      <div class="orders-header">Заказы в кофейни</div>
+    <div class="user" v-for="user in users" :key="user.id">
+      <img :src="user.image" alt="User Image" class="user-image">
+      <div class="user-name">{{ user.name }}</div>
+      <div class="user-email">{{ user.email }}</div>
     </div>
-  </div>
+    </div>
+    <button @click="showHumans">Показать весь список</button>
+</div>
 </template>
+
 
 <script setup>
 
@@ -131,23 +162,122 @@
   background-color: #fff;
   border-radius: 30px;
   width: 565px;
-  height: 180px;
-  margin-top: 32px;
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  height: 210px;
+  margin-top: 24px;
+
+  & .chart-header{
+    color: #000;
+    font-family: 'SONGER Condensed', sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;    
+    margin-top: 24px;
+    margin-left: 30px;
+  }
 }
 
+.week-calendar {
+  border: 1px solid rgba(0, 0, 0, 0.20);
+  background-color: #fff;
+  border-radius: 20px;
+  width: 472px;
+  height: 135px;
+  margin-top: 15px;
+
+  & .calendar-header {
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 24px;
+    margin-left: 30px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+  }
+
+  & .calendar-arrows {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    gap: 7px;
+  }
+}
+
+.lil-humans {
+  display: flex;
+  margin-top: 15px;
+  width: 472px;
+  height: 416px;
+  border: 1px solid rgba(0, 0, 0, 0.20);
+  background-color: #fff;
+  border-radius: 30px;
+
+  & .human-profile {
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+    margin-left: 24px;
+
+    img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    } 
+  }
+}
 .history-orders {
   border: 1px solid rgba(0, 0, 0, 0.20);
   background-color: #fff;
   border-radius: 30px;
   width: 565px;
-  height: 180px;
+  height: 250px;
   margin-top: 15px;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
+  & .orders-header {
+    color: #000;
+    font-family: 'SONGER Condensed', sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 24px;
+    margin-left: 30px;
+  }
+
+  & .user {
+    // user styles 
+
+    & .user-image {
+      // user image styles
+    }
+
+    & .user-name, & .user-email {
+      // ser name and email styles
+    }
+  }
 }
 
+button {
+  display: inline-flex;
+  padding: 17px 111px 17px 112px;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background-color: #DDE144;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  position: relative;
 
-
+  margin-top: 15px;
+}
 </style>
