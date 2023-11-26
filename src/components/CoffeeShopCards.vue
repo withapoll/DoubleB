@@ -3,27 +3,49 @@
     <div class="search-container">
       <input type="text" v-model="search" placeholder="Что будем искать?" />
     </div>
-    <div class="filter-container">
-      <select v-model="filter">
-        <option value="all">По умолчанию</option>
-        <option value="delivery">По возрастанию</option>
-        <option value="pickup">По убыванию</option>
-      </select>
+    <div class="additional-shops">
+      <div class="filter-container">
+        <select v-model="filter">
+          <option value="all">По умолчанию</option>
+          <option value="high">По возрастанию</option>
+          <option value="low">По убыванию</option>
+        </select>
+      </div>
+      <button id="addShop" @click="showForm = true">
+        Добавить кофейню
+        <i class="fa-solid fa-plus"></i>
+      </button>
     </div>
-    <button id="addShop" @click="addShop">Добавить кофейню</button>
+  </div>
+  <div v-if="showForm" class="popup">
+    <form @submit.prevent="submitForm">
+      <label for="shopName">Название кофейни:</label>
+      <input id="shopName" v-model="shopName" required />
+
+      <label for="shopAddress">Адрес кофейни:</label>
+      <input id="shopAddress" v-model="shopAddress" required />
+
+      <button type="submit">Отправить</button>
+      <button type="button" @click="showForm = false">Закрыть</button>
+    </form>
   </div>
   <div class="card">
-    <h1>{{ title }}</h1>
-    <p class="subtitle">{{ subtitle }}</p>
-    <p class="rating">{{ rating }}</p>
-    <p>Доход</p>
-    <p class="income">{{ income }}</p>
-    <p>Расписание</p>
-    <p class="schedule">{{ schedule }}</p>
+    <div class="card-header">
+      <h1>{{ title }}</h1>
+      <p class="rating">{{ rating }}</p>
+    </div>
+    <p class="shop-address">{{ address }}</p>
+    <div class="shop-income">
+      <p>Доход</p>
+      <p class="income">{{ income }}</p>
+    </div>
+    <div class="shop-schedule">
+      <p>Расписание</p>
+      <p class="schedule">{{ schedule }}</p>
+    </div>
     <p class="delivery-status">{{ deliveryStatus }}</p>
     <div class="progress-bar">
       <div class="progress" :style="{ width: progress + '%' }"></div>
-      <div class="arrow"></div>
     </div>
     <p class="timer">{{ timer }}</p>
     <button id="showDetails" @click="showDetails">Подробнее</button>
@@ -32,24 +54,47 @@
 
 <script setup>
 const title = "Кофейня №19";
-const subtitle = "ул. Театральный проспект 426";
+const address = "ул. Театральный проспект 42б";
 const rating = "4.5";
 const income = "₽560.000";
 const schedule = "с 9:00 до 20:00";
 const deliveryStatus = "Осуществляется Доставка";
 const progress = 75;
 const timer = "осталось ~2 часа";
+import { ref } from "vue";
+
+const showForm = ref(false);
+const shopName = ref("");
+const shopAddress = ref("");
+
+const submitForm = () => {
+  // Handle form submission here
+  console.log(shopName.value, shopAddress.value);
+  showForm.value = false;
+};
 </script>
 
 <style lang="scss" scoped>
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .card {
   border: 1px solid rgba(0, 0, 0, 0.2);
   background-color: #fff;
   border-radius: 50px;
   padding: 20px;
   margin-top: 32px;
-  width: 300px;
+  width: 350px;
   height: fit-content;
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
 
   h1 {
     color: #000;
@@ -69,9 +114,9 @@ const timer = "осталось ~2 часа";
     line-height: normal;
   }
 
-  .subtitle {
-    color: #808080;
-    // Add your styles for the subtitle
+  .shop-address {
+    color: #646464;
+    margin: 16px 0;
   }
 
   .rating {
@@ -83,24 +128,51 @@ const timer = "осталось ~2 часа";
     display: flex;
     color: #222;
     background-color: #e8e6e6;
+    color: #222;
+    font-family: "SONGER Grotesque", sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
 
-  .schedule {
-    color: #808080;
-    // Add your styles for the schedule
+  .shop-income {
+    color: #646464;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 7px;
+
+    & .income {
+      color: #000;
+    }
+  }
+  .shop-schedule {
+    color: #646464;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 7px;
+
+    & .schedule {
+      color: #000;
+    }
   }
 
   .delivery-status {
     color: #a0a33c;
-    background-color: #e8e6e6;
-    width: 250px;
-    height: 38px;
     border-radius: 15px;
-    display: flex;
+    background: #eaeaea;
+    margin-left: 10px;
+    width: 290px;
+    height: 38px;
+    margin-top: 16px;
+    display: inline-flex;
+    padding: 10px;
     justify-content: center;
     align-items: center;
-
-    // Add your styles for the delivery status
+    gap: 10px;
+    text-align: center;
   }
   .progress-bar {
     position: relative;
@@ -123,8 +195,6 @@ const timer = "осталось ~2 часа";
     color: #808080;
     display: flex;
     justify-content: center;
-
-    // Add your styles for the timer
   }
 }
 
@@ -136,30 +206,18 @@ const timer = "осталось ~2 часа";
   font-size: 16px;
   cursor: pointer;
   display: flex;
-  width: 250px;
-  padding: 13px 0px;
+  width: 290px;
+  padding: 13px;
   justify-content: center;
   align-items: center;
+  margin-left: 10px;
 }
 
-#addShop {
-  background-color: #dde144;
-  border-radius: 15px;
-  padding: 10px 20px;
-  margin-top: 20px;
-  font-size: 16px;
-  cursor: pointer;
+.header {
   display: flex;
-  width: 175px;
-  height: 38px;
-  padding: 10px;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
 }
-
 .search-container {
   display: flex;
 
@@ -173,16 +231,88 @@ const timer = "осталось ~2 часа";
   }
 }
 
-.filter-container {
+.additional-shops {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  gap: 10px;
 
-  select {
-    padding: 7px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+  & #addShop {
+    background-color: #dde144;
     border-radius: 15px;
     font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    width: 195px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
+  & .filter-container {
+    display: flex;
+    align-items: center;
+
+    select {
+      padding: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      font-size: 16px;
+      outline: none;
+    }
+  }
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  input:focus {
+    border-color: #333;
     outline: none;
+  }
+
+  button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dde144;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  button:hover {
+    background-color: #d8df05;
+  }
+
+  button:active {
+    background-color: #d8df05;
   }
 }
 </style>

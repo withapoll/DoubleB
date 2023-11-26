@@ -7,7 +7,9 @@
     <div class="profile">
       <div class="top-icons">
         <i class="fa-solid fa-moon" @click="darkModOn"></i>
-        <i class="fa-solid fa-bell" @click="showNotification"></i>
+        <router-link to="/notifications">
+          <i class="fa-solid fa-bell"></i>
+        </router-link>
       </div>
       <img src="@/assets/profile_pic.jpg" alt="Profile picture" />
       <div class="profile-info">
@@ -58,6 +60,9 @@ aside {
     background-color: #eee;
     color: #333;
     font-size: 20px;
+  }
+  a {
+    text-decoration: none; /* this property removes the underline */
   }
 }
 

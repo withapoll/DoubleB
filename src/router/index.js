@@ -1,33 +1,38 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import SideBar from '../components/SideBar.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import SideBar from "../components/SideBar.vue";
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView, SideBar
+    path: "/",
+    name: "home",
+    component: HomeView,
+    SideBar,
   },
   {
-    path: '/humans',
-    name: 'Humans',
-    component: () => import( '../views/HumanTable.vue')
+    path: "/humans",
+    name: "Humans",
+    component: () => import("../views/HumanTable.vue"),
   },
   {
-    path: '/shops',
-    name: 'Shops',
-    component: () => import( '../views/CoffeeShops.vue')
+    path: "/shops",
+    name: "Shops",
+    component: () => import("../views/CoffeeShops.vue"),
   },
   {
-    path: '/orders',
-    name: 'Orders',
-    component: () => import( '../views/DeliveryOrders.vue')
-  }
-
-]
+    path: "/orders",
+    name: "Orders",
+    component: () => import("../views/DeliveryOrders.vue"),
+  },
+  {
+    path: "/notifications",
+    name: "Notifications",
+    component: () => import("../views/NotificationView.vue"),
+  },
+];
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
