@@ -3,7 +3,7 @@
     <div class="cards">
       <div class="card">
         <div class="card_header">
-          <p>Общая прибыли</p>
+          <p>Общая прибыль</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -221,6 +221,7 @@
       <div class="left-layout">
         <div class="chart">
           <div class="chart-header">Объем продаж</div>
+          <canvas id="income-chart"></canvas>
         </div>
         <div class="history-orders">
           <div class="orders-header">Заказы в кофейни</div>
@@ -255,9 +256,12 @@
               <p>polunin.bussiness@mail.com</p>
             </div>
           </div>
-          <div class="human" v-for="human in humans" :key="human.id">
-            <div class="human-name">{{ human.name }}</div>
-            <div class="human-email">{{ human.email }}</div>
+          <div class="human-profile">
+            <img src="@/assets/profile_pic.jpg" alt="Profile picture" />
+            <div class="profile-info">
+              <h3>Полунин Андрей</h3>
+              <p>polunin.bussiness@mail.com</p>
+            </div>
           </div>
         </div>
         <button @click="goToHumans">Посмотреть полный список</button>
@@ -268,7 +272,65 @@
 
 <script setup>
 import { useRouter } from "vue-router";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { Chart } from "chart.js/auto";
+
+let ctx = null;
+const months = [
+  "Янв",
+  "Фев",
+  "Мар",
+  "Апр",
+  "Май",
+  "Июн",
+  "Июл",
+  "Авг",
+  "Сен",
+  "Окт",
+  "Ноя",
+  "Дек",
+];
+const incomeData = months.map(() => Math.floor(Math.random() * 10000) + 1000);
+
+onMounted(() => {
+  ctx = document.getElementById("income-chart").getContext("2d");
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: months,
+      datasets: [
+        {
+          data: incomeData,
+          backgroundColor: "rgba(221, 225, 68, 1)",
+          borderRadius: 10,
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        legend: {
+          labels: {
+            filter: function (legendItem) {
+              return typeof legendItem.text !== "undefined";
+            },
+          },
+        },
+      },
+      scales: {
+        x: {
+          grid: {
+            display: false,
+          },
+        },
+        y: {
+          grid: {
+            display: false,
+          },
+        },
+      },
+    },
+  });
+});
 
 const weekDays = ref(["ПН", "ВТ", "СР", "ЧЕТ", "ПТ", "СБ", "ВС"]);
 const weekDates = ref([1, 2, 3, 4, 5, 6, 7]);
@@ -288,6 +350,11 @@ const router = useRouter();
 const goToHumans = () => {
   router.push("/humans");
 };
+
+// Define your missing data here
+const users = ref([
+  // Your user data here
+]);
 </script>
 
 <style lang="scss" scoped>
@@ -339,7 +406,7 @@ const goToHumans = () => {
     background-color: #fff;
     border-radius: 30px;
     width: 545px;
-    height: 210px;
+    height: fit-content;
     margin-top: 24px;
 
     & .chart-header {
@@ -351,6 +418,12 @@ const goToHumans = () => {
       line-height: normal;
       margin-top: 24px;
       margin-left: 30px;
+      margin-bottom: 20px;
+    }
+    & #income-chart {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 20px;
     }
   }
   & .history-orders {
@@ -441,9 +514,10 @@ const goToHumans = () => {
 
   & .lil-humans {
     display: flex;
+    flex-direction: column;
     margin-top: 15px;
     width: 370px;
-    height: 250px;
+    height: 410px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     background-color: #fff;
     border-radius: 30px;
@@ -451,14 +525,27 @@ const goToHumans = () => {
     & .human-profile {
       display: flex;
       gap: 20px;
-      margin-top: 25px;
+      margin-top: 32px;
       margin-left: 24px;
 
       img {
         border-radius: 50%;
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
         object-fit: cover;
+      }
+    }
+    & .human-profile {
+      h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        color: black;
+        margin-bottom: 5px;
+      }
+      p {
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        color: rgb(172, 172, 172);
       }
     }
   }
