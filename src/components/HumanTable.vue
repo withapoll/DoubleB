@@ -3,7 +3,7 @@
     <div class="cards">
       <div class="card">
         <div class="card_header">
-          <p>Общая прибыли</p>
+          <p>Общая прибыль</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
