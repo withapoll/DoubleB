@@ -86,6 +86,7 @@ const submitForm = () => {
   border-radius: 50px;
   padding: 20px;
   margin-top: 32px;
+  height: 140px;
   width: 350px;
   height: fit-content;
 

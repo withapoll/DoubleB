@@ -91,7 +91,12 @@
 </template>
 
 <script setup>
-// add methods for buttons
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const signOut = () => {
+  router.push("/login");
+};
 </script>
 
 <style lang="scss" scoped>

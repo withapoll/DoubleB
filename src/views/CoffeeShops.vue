@@ -24,7 +24,7 @@
 <script setup>
 import ShopsStatistics from "@/components/ShopsStatistics.vue";
 const greeting = "Привет, Андрей!";
-const description = "Ваша статистика по кофейням!";
+const description = "Вот общая статистика по кофейням!";
 const username = "Андрей Полунин";
 const email = "polunin.bussiness@mail.com";
 </script>

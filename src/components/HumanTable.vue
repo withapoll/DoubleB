@@ -111,6 +111,7 @@
           <p>-2% от предущего месяца</p>
         </div>
       </div>
+      <div class="content-header"></div>
       <div class="card">
         <div class="card_header">
           <p>Количество Кофеен</p>
@@ -159,141 +160,109 @@
           <p>+7% от предущего месяца</p>
         </div>
       </div>
-      <div class="card">
-        <div class="card_header">
-          <p>Количество сотрудников</p>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <path
-              d="M3 16V8C3 6.67392 3.52678 5.40215 4.46447 4.46447C5.40215 3.52678 6.67392 3 8 3H16C17.3261 3 18.5979 3.52678 19.5355 4.46447C20.4732 5.40215 21 6.67392 21 8V16C21 17.3261 20.4732 18.5979 19.5355 19.5355C18.5979 20.4732 17.3261 21 16 21H8C6.67392 21 5.40215 20.4732 4.46447 19.5355C3.52678 18.5979 3 17.3261 3 16Z"
-              stroke="black"
-              stroke-width="1.5"
-            />
-            <path
-              d="M16.5 14.5C16.5 14.5 15 16.5 12 16.5C9 16.5 7.5 14.5 7.5 14.5"
-              stroke="black"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M8.5 10C8.36739 10 8.24021 9.94732 8.14645 9.85355C8.05268 9.75979 8 9.63261 8 9.5C8 9.36739 8.05268 9.24021 8.14645 9.14645C8.24021 9.05268 8.36739 9 8.5 9C8.63261 9 8.75979 9.05268 8.85355 9.14645C8.94732 9.24021 9 9.36739 9 9.5C9 9.63261 8.94732 9.75979 8.85355 9.85355C8.75979 9.94732 8.63261 10 8.5 10ZM15.5 10C15.3674 10 15.2402 9.94732 15.1464 9.85355C15.0527 9.75979 15 9.63261 15 9.5C15 9.36739 15.0527 9.24021 15.1464 9.14645C15.2402 9.05268 15.3674 9 15.5 9C15.6326 9 15.7598 9.05268 15.8536 9.14645C15.9473 9.24021 16 9.36739 16 9.5C16 9.63261 15.9473 9.75979 15.8536 9.85355C15.7598 9.94732 15.6326 10 15.5 10Z"
-              fill="black"
-              stroke="black"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+    </div>
+  </div>
+  <div class="content-header">
+    <div class="search-container">
+      <input type="text" v-model="search" placeholder="Что будем искать?" />
+    </div>
+    <div class="right-content">
+      <div class="filter">
+        <div class="filter-container">
+          <select v-model="filter">
+            <option value="all">Все</option>
+            <option value="shops">Кофейня</option>
+            <option value="contacts">Контакты</option>
+            <option value="status">Статус</option>
+            <option value="salary">Доход</option>
+          </select>
         </div>
-        <h3>219 человек</h3>
-        <div class="card_footer">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <path
-              d="M2 12C2 7.286 2 4.929 3.464 3.464C4.93 2 7.286 2 12 2C16.714 2 19.071 2 20.535 3.464C22 4.93 22 7.286 22 12C22 16.714 22 19.071 20.535 20.535C19.072 22 16.714 22 12 22C7.286 22 4.929 22 3.464 20.535C2 19.072 2 16.714 2 12Z"
-              stroke="#71DD4B"
-              stroke-width="1.5"
-            />
-            <path
-              d="M7 14L9.293 11.707C9.48053 11.5195 9.73484 11.4142 10 11.4142C10.2652 11.4142 10.5195 11.5195 10.707 11.707L12.293 13.293C12.4805 13.4805 12.7348 13.5858 13 13.5858C13.2652 13.5858 13.5195 13.4805 13.707 13.293L17 10M17 10V12.5M17 10H14.5"
-              stroke="#71DD4B"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <p>+25% от предущего месяца</p>
-        </div>
+      </div>
+      <div>
+        <button id="importHumans" @click="importFile">
+          Импортировать
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <input
+          type="file"
+          ref="fileInput"
+          @change="handleFileImport"
+          style="display: none"
+        />
       </div>
     </div>
-    <div class="layout">
-      <div class="left-layout">
-        <div class="chart">
-          <div class="chart-header">Объем продаж</div>
-        </div>
-        <div class="history-orders">
-          <div class="orders-header">Заказы в кофейни</div>
-          <div class="user" v-for="user in users" :key="user.id">
-            <img :src="user.image" alt="User Image" class="user-image" />
-            <div class="user-name">{{ user.name }}</div>
-            <div class="user-email">{{ user.email }}</div>
-          </div>
-        </div>
-      </div>
-      <div class="right-layout">
-        <div class="week-calendar">
-          <div class="calendar-header">
-            Ноябрь 2023
-            <div class="calendar-arrows">
-              <i class="fa-solid fa-chevron-left" @click="prevWeek"></i>
-              <i class="fa-solid fa-chevron-right" @click="nextWeek"></i>
-            </div>
-          </div>
-          <div class="week-days">
-            <div v-for="day in weekDays" :key="day">{{ day }}</div>
-          </div>
-          <div class="week-dates">
-            <div v-for="date in weekDates" :key="date">{{ date }}</div>
-          </div>
-        </div>
-        <div class="lil-humans">
-          <div class="human-profile">
-            <img src="@/assets/profile_pic.jpg" alt="Profile picture" />
-            <div class="profile-info">
-              <h3>Полунин Андрей</h3>
-              <p>polunin.bussiness@mail.com</p>
-            </div>
-          </div>
-          <div class="human" v-for="human in humans" :key="human.id">
-            <div class="human-name">{{ human.name }}</div>
-            <div class="human-email">{{ human.email }}</div>
-          </div>
-        </div>
-        <button @click="goToHumans">Посмотреть полный список</button>
-      </div>
-    </div>
+  </div>
+  <div class="employee-table">
+    <table>
+      <thead>
+        <tr>
+          <th v-for="header in headers" :key="header">{{ header }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="employee in employees" :key="employee.id">
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.workadress }}</td>
+          <td>{{ employee.contacts }}</td>
+          <td>{{ employee.status }}</td>
+          <td>{{ employee.income }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
 import { ref } from "vue";
 
-const weekDays = ref(["ПН", "ВТ", "СР", "ЧЕТ", "ПТ", "СБ", "ВС"]);
-const weekDates = ref([1, 2, 3, 4, 5, 6, 7]);
-let currentWeek = ref(1);
+const fileInput = ref(null);
 
-const nextWeek = () => {
-  currentWeek.value++;
+const importFile = () => {
+  fileInput.value.click();
 };
 
-const prevWeek = () => {
-  if (currentWeek.value > 1) {
-    currentWeek.value--;
-  }
+const handleFileImport = (event) => {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = (e) => {
+    // The file's text will be printed here
+    console.log(e.target.result);
+  };
+
+  reader.readAsText(file);
 };
 
-const router = useRouter();
-const goToHumans = () => {
-  router.push("/humans");
-};
+const headers = ref([
+  "ФИО Сотрудника",
+  "Место работы",
+  "Контакты",
+  "Статус",
+  "Доход",
+]);
+const employees = ref([
+  {
+    id: 1,
+    name: "Оля Туктарова",
+    workadress: "ул. Театральный проспект 42б",
+    contacts: "8(800)555-35-35",
+    status: "На месте",
+    income: "$1200",
+  },
+  {
+    id: 2,
+    name: "Дмитрий Иванов",
+    workadress: "ул. Театральный проспект 42б",
+    contacts: "8(800)555-35-35",
+    status: "На месте",
+    income: "$1200",
+  },
+]);
 </script>
 
 <style lang="scss" scoped>
 .cards {
   display: flex;
-  justify-content: space-between;
 }
 
 .card {
@@ -324,159 +293,81 @@ const goToHumans = () => {
   }
 }
 
-.layout {
+.content-header {
   display: flex;
-  justify-content: space-between;
-  gap: 16px;
-}
-.left-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-
-  & .chart {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    background-color: #fff;
-    border-radius: 30px;
-    width: 545px;
-    height: 210px;
-    margin-top: 24px;
-
-    & .chart-header {
-      color: #000;
-      font-family: "SONGER Condensed", sans-serif;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      margin-top: 24px;
-      margin-left: 30px;
-    }
-  }
-  & .history-orders {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    background-color: #fff;
-    border-radius: 30px;
-    width: 545px;
-    height: 250px;
-    margin-top: 15px;
-    font-family: "Inter", sans-serif;
+  & #importHumans {
+    background-color: #dde144;
+    border-radius: 15px;
     font-size: 16px;
-    & .orders-header {
-      color: #000;
-      font-family: "SONGER Condensed", sans-serif;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      margin-top: 24px;
-      margin-left: 30px;
-    }
-
-    & .user {
-      // user styles
-
-      & .user-image {
-        // user image styles
-      }
-
-      & .user-name,
-      & .user-email {
-        // ser name and email styles
-      }
-    }
-  }
-}
-
-.right-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-
-  & .week-calendar {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    background-color: #fff;
-    border-radius: 20px;
-    width: 370px;
-    height: 135px;
-    margin-top: 24px;
-
-    & .calendar-header {
-      color: #000;
-      font-family: "Inter", sans-serif;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: normal;
-      margin-top: 24px;
-      margin-left: 30px;
-      justify-content: space-between;
-      display: flex;
-      align-items: center;
-    }
-
-    & .calendar-arrows {
-      display: flex;
-      align-items: center;
-      margin-right: 30px;
-      gap: 7px;
-    }
-
-    & .week-days {
-      display: flex;
-      align-items: center;
-      margin-left: 30px;
-      margin-top: 15px;
-      gap: 25px;
-    }
-
-    & .week-dates {
-      display: flex;
-      align-items: center;
-      margin-left: 30px;
-      margin-top: 15px;
-      gap: 25px;
-    }
-  }
-
-  & .lil-humans {
+    cursor: pointer;
     display: flex;
-    margin-top: 15px;
-    width: 370px;
-    height: 250px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    background-color: #fff;
-    border-radius: 30px;
-
-    & .human-profile {
-      display: flex;
-      gap: 20px;
-      margin-top: 25px;
-      margin-left: 24px;
-
-      img {
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        object-fit: cover;
-      }
-    }
-  }
-  button {
+    width: 195px;
+    height: 45px;
     display: flex;
-    padding: 17px 55px 17px 55px;
     justify-content: center;
     align-items: center;
-    color: black;
-    background-color: #dde144;
-    border-radius: 20px;
-    font-family: "Inter", sans-serif;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    position: relative;
-    margin-top: 15px;
+    gap: 15px;
+    margin-top: 20px;
   }
+
+  .right-content {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+
+    & .filter {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+
+      select {
+        padding: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        font-size: 16px;
+        outline: none;
+      }
+    }
+  }
+}
+
+.search-container {
+  display: flex;
+  margin-top: 20px;
+
+  input[type="text"] {
+    width: 409px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    font-size: 16px;
+    outline: none;
+  }
+}
+
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.employee-table th,
+.employee-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.employee-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.employee-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #dde144;
+  color: black;
 }
 </style>

@@ -12,7 +12,7 @@ const routes = [
   {
     path: "/humans",
     name: "Humans",
-    component: () => import("../views/HumanTable.vue"),
+    component: () => import("../views/HumansView.vue"),
   },
   {
     path: "/shops",
@@ -28,6 +28,11 @@ const routes = [
     path: "/notifications",
     name: "Notifications",
     component: () => import("../views/NotificationView.vue"),
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: () => import("../views/LoginForm.vue"),
   },
 ];
 const router = createRouter({
