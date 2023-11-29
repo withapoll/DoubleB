@@ -1,12 +1,12 @@
 <template>
   <div class="app">
-    <!-- Sidebar -->
-    <SideBar />
-
     <!-- Content -->
     <main>
       <router-view />
     </main>
+
+    <!-- Sidebar -->
+    <SideBar />
   </div>
 </template>
 

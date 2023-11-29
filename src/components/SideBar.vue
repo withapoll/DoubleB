@@ -97,7 +97,7 @@ aside {
   height: 100vh;
   background-color: #222;
   color: var(--light);
-  border-radius: 0px 20px 20px 0px;
+  // border-radius: 20px 0px 0px 20px;
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
