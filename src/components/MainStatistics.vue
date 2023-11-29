@@ -225,6 +225,33 @@
         </div>
         <div class="history-orders">
           <div class="orders-header">Заказы в кофейни</div>
+          <div class="orders">
+            <p>Заказов пока не было</p>
+            <div class="delivery-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+              >
+                <path
+                  d="M6.66667 22.6667C6.66667 23.3739 6.94762 24.0522 7.44772 24.5523C7.94781 25.0524 8.62609 25.3333 9.33333 25.3333C10.0406 25.3333 10.7189 25.0524 11.219 24.5523C11.719 24.0522 12 23.3739 12 22.6667C12 21.9594 11.719 21.2811 11.219 20.781C10.7189 20.281 10.0406 20 9.33333 20C8.62609 20 7.94781 20.281 7.44772 20.781C6.94762 21.2811 6.66667 21.9594 6.66667 22.6667ZM20 22.6667C20 23.3739 20.281 24.0522 20.781 24.5523C21.2811 25.0524 21.9594 25.3333 22.6667 25.3333C23.3739 25.3333 24.0522 25.0524 24.5523 24.5523C25.0524 24.0522 25.3333 23.3739 25.3333 22.6667C25.3333 21.9594 25.0524 21.2811 24.5523 20.781C24.0522 20.281 23.3739 20 22.6667 20C21.9594 20 21.2811 20.281 20.781 20.781C20.281 21.2811 20 21.9594 20 22.6667Z"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M6.66667 22.6665H4V17.3332M2.66667 6.6665H17.3333V22.6665M12 22.6665H20M25.3333 22.6665H28V14.6665M28 14.6665H17.3333M28 14.6665L24 7.99984H17.3333M4 11.9998H9.33333"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
           <div class="user" v-for="user in users" :key="user.id">
             <img :src="user.image" alt="User Image" class="user-image" />
             <div class="user-name">{{ user.name }}</div>
@@ -254,6 +281,10 @@
             <div class="profile-info">
               <h3>Полунин Андрей</h3>
               <p>polunin.bussiness@mail.com</p>
+              <div class="human-status">
+                <div class="status-emoji"></div>
+                <p>На месте</p>
+              </div>
             </div>
           </div>
           <div class="human-profile">
@@ -261,6 +292,43 @@
             <div class="profile-info">
               <h3>Полунин Андрей</h3>
               <p>polunin.bussiness@mail.com</p>
+              <div class="human-status">
+                <div class="status-emoji"></div>
+                <p>На месте</p>
+              </div>
+            </div>
+          </div>
+          <div class="human-profile">
+            <img src="@/assets/profile_pic.jpg" alt="Profile picture" />
+            <div class="profile-info">
+              <h3>Полунин Андрей</h3>
+              <p>polunin.bussiness@mail.com</p>
+              <div class="human-status">
+                <div class="status-emoji"></div>
+                <p>На месте</p>
+              </div>
+            </div>
+          </div>
+          <div class="human-profile">
+            <img src="@/assets/profile_pic.jpg" alt="Profile picture" />
+            <div class="profile-info">
+              <h3>Полунин Андрей</h3>
+              <p>polunin.bussiness@mail.com</p>
+              <div class="human-status">
+                <div class="status-emoji"></div>
+                <p>На месте</p>
+              </div>
+            </div>
+          </div>
+          <div class="human-profile">
+            <img src="@/assets/profile_pic.jpg" alt="Profile picture" />
+            <div class="profile-info">
+              <h3>Полунин Андрей</h3>
+              <p>polunin.bussiness@mail.com</p>
+              <div class="human-status">
+                <div class="status-emoji"></div>
+                <p>На месте</p>
+              </div>
             </div>
           </div>
         </div>
@@ -446,6 +514,29 @@ const users = ref([
       margin-left: 30px;
     }
 
+    & .orders {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+      gap: 5px;
+
+      p {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+      }
+      & .delivery-icon {
+        svg {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+
     & .user {
       // user styles
 
@@ -508,7 +599,7 @@ const users = ref([
       align-items: center;
       margin-left: 30px;
       margin-top: 15px;
-      gap: 25px;
+      gap: 38px;
     }
   }
 
@@ -524,8 +615,9 @@ const users = ref([
 
     & .human-profile {
       display: flex;
+      align-items: center;
       gap: 20px;
-      margin-top: 32px;
+      margin-top: 28px;
       margin-left: 24px;
 
       img {
@@ -548,7 +640,18 @@ const users = ref([
         color: rgb(172, 172, 172);
       }
     }
+    & .human-status {
+      p {
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        color: #000;
+      }
+    }
   }
+
   button {
     display: flex;
     padding: 17px 55px 17px 55px;

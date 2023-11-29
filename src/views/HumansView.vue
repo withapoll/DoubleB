@@ -16,6 +16,10 @@
         <h3>{{ username }}</h3>
         <p>{{ email }}</p>
       </div>
+      <div class="sign-out">
+        <i id="sign-out-icon" class="fa-solid fa-right-from-bracket"></i>
+        <button @click="signOut"></button>
+      </div>
     </div>
   </aside>
   <HumanTable />
@@ -28,6 +32,13 @@ const greeting = "Привет, Андрей!";
 const description = "Вот общая статистика по персоналу!";
 const username = "Андрей Полунин";
 const email = "polunin.bussiness@mail.com";
+
+// import { useRouter } from "vue-router";
+
+// const router = useRouter();
+// const signOut = () => {
+//   router.push("/login");
+// };
 </script>
 
 <style lang="scss" scoped>

@@ -83,21 +83,10 @@
         </button>
       </div>
     </div>
-    <div class="sign-out">
-      <i id="sign-out-icon" class="fa-solid fa-right-from-bracket"></i>
-      <button @click="signOut">Выйти</button>
-    </div>
   </aside>
 </template>
 
-<script setup>
-import { useRouter } from "vue-router";
-
-const router = useRouter();
-const signOut = () => {
-  router.push("/login");
-};
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
 aside {
@@ -120,7 +109,7 @@ aside {
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-  margin-top: 20px;
+  margin-top: 35px;
 
   img {
     max-width: 110px;
@@ -185,6 +174,7 @@ input[type="text"] {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  margin-top: 30px;
 }
 
 .notification {
@@ -254,30 +244,5 @@ input[type="text"] {
   width: 60px;
   height: 60px;
   cursor: pointer;
-}
-
-.sign-out {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 25px;
-  background-color: #dde144;
-  border-radius: 15px;
-  cursor: pointer;
-  width: 250px;
-  height: 38px;
-
-  & #sign-out-icon {
-    font-size: 15px;
-    color: #222;
-  }
 }
 </style>

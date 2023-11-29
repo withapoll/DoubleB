@@ -16,6 +16,10 @@
         <h3>{{ username }}</h3>
         <p>{{ email }}</p>
       </div>
+      <div class="sign-out">
+        <i id="sign-out-icon" class="fa-solid fa-right-from-bracket"></i>
+        <button @click="signOut"></button>
+      </div>
     </div>
   </aside>
   <ShopsStatistics />

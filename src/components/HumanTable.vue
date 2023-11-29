@@ -257,6 +257,30 @@ const employees = ref([
     status: "На месте",
     income: "$1200",
   },
+  {
+    id: 3,
+    name: "Александр Петров",
+    workadress: "ул. Театральный проспект 42б",
+    contacts: "8(800)555-35-35",
+    status: "На месте",
+    income: "$1200",
+  },
+  {
+    id: 4,
+    name: "Александр Петров",
+    workadress: "ул. Театральный проспект 42б",
+    contacts: "8(800)555-35-35",
+    status: "На месте",
+    income: "$1200",
+  },
+  {
+    id: 5,
+    name: "Александр Петров",
+    workadress: "ул. Театральный проспект 42б",
+    contacts: "8(800)555-35-35",
+    status: "На месте",
+    income: "$1200",
+  },
 ]);
 </script>
 
@@ -349,25 +373,26 @@ const employees = ref([
 
 .employee-table {
   width: 100%;
-  border-collapse: collapse;
   margin-top: 20px;
+  border-collapse: collapse;
 }
 
 .employee-table th,
 .employee-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-.employee-table tr:nth-child(even) {
-  background-color: #f2f2f2;
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
+  padding: 16px;
+  text-align: left;
 }
 
 .employee-table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #dde144;
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: 500;
+  background-color: rgb(255, 255, 255);
   color: black;
+  font-family: "Inter", sans-serif;
+}
+
+.employee-table tr:hover {
+  background-color: rgba(0, 0, 0, 0.07);
 }
 </style>

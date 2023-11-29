@@ -16,6 +16,10 @@
         <h3>{{ username }}</h3>
         <p>{{ email }}</p>
       </div>
+      <div class="sign-out">
+        <i id="sign-out-icon" class="fa-solid fa-right-from-bracket"></i>
+        <button @click="signOut"></button>
+      </div>
     </div>
   </aside>
   <MainStatistics />
@@ -27,6 +31,13 @@ const greeting = "Привет, Андрей!";
 const description = "Вот общая статистика по вашему бизнесу!";
 const username = "Андрей Полунин";
 const email = "polunin.bussiness@mail.com";
+
+// import { useRouter } from "vue-router";
+
+// const router = useRouter();
+// const signOut = () => {
+//   router.push("/login");
+// };
 </script>
 
 <style lang="scss" scoped>
@@ -91,6 +102,10 @@ aside {
   p {
     font-size: 12px;
     color: #333;
+  }
+  #sign-out-icon {
+    font-size: 15px;
+    color: #222;
   }
 }
 </style>
