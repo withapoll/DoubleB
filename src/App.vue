@@ -64,7 +64,11 @@ button {
   main {
     flex: 1 1 0;
     padding: 20px;
-
+    margin-left: var(
+      --sidebar-width
+    ); /* Replace with the width of your sidebar */
+    overflow-y: auto;
+    height: 100vh;
     @media (max-width: 768px) {
       padding-left: 10px;
       padding-right: 10px;

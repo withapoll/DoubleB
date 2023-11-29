@@ -103,12 +103,12 @@ const signOut = () => {
 aside {
   display: flex;
   flex-direction: column;
+  position: fixed;
   width: var(--sidebar-width);
-  min-height: 100vh;
+  height: 100vh;
   background-color: #222;
   color: var(--light);
   border-radius: 0px 20px 20px 0px;
-  overflow: hidden;
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
