@@ -83,6 +83,14 @@
         </button>
       </div>
     </div>
+    <div class="about-app">
+      <div class="link">
+        <router-link to="/about" class="link-style">
+          <i class="fas fa-info"></i>
+          О приложении
+        </router-link>
+      </div>
+    </div>
   </aside>
 </template>
 
@@ -165,6 +173,31 @@ input[type="text"] {
 }
 
 .links a.router-link-exact-active {
+  width: 250px;
+  color: black;
+  background-color: #dde144;
+}
+
+.about-app {
+  display: flex;
+  flex-direction: column;
+  margin-left: 24px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.link-style {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.link-style.router-link-exact-active {
   width: 250px;
   color: black;
   background-color: #dde144;

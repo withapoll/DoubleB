@@ -34,6 +34,11 @@ const routes = [
     name: "Login",
     component: () => import("../views/LoginForm.vue"),
   },
+  {
+    path: "/about",
+    name: "About App",
+    component: () => import("../views/AboutApp.vue"),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
