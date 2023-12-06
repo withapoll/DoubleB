@@ -199,7 +199,6 @@ const shop_humans = ref([
   },
   {
     id: 2,
-    photo: "@/assets/humans/human2.png",
   },
 ]);
 
