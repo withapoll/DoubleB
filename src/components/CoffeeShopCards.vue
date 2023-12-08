@@ -53,6 +53,9 @@
 </template>
 
 <script setup>
+import { useRouter } from "vue-router";
+const router = useRouter();
+
 const title = "Кофейня №19";
 const address = "ул. Театральный проспект 42б";
 const rating = "4.5";
@@ -71,6 +74,10 @@ const submitForm = () => {
   // Handle form submission here
   console.log(shopName.value, shopAddress.value);
   showForm.value = false;
+};
+
+const showDetails = () => {
+  router.push("/shop1");
 };
 </script>
 

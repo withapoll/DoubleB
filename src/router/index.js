@@ -1,13 +1,16 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import SideBar from "../components/SideBar.vue";
 
 const routes = [
   {
-    path: "/",
-    name: "home",
+    path: "/login",
+    name: "Login",
+    component: () => import("../views/LoginForm.vue"),
+  },
+  {
+    path: "/home",
+    name: "Home",
     component: HomeView,
-    SideBar,
   },
   {
     path: "/humans",
@@ -30,14 +33,14 @@ const routes = [
     component: () => import("../views/NotificationView.vue"),
   },
   {
-    path: "/login",
-    name: "Login",
-    component: () => import("../views/LoginForm.vue"),
-  },
-  {
     path: "/about",
     name: "About App",
     component: () => import("../views/AboutApp.vue"),
+  },
+  {
+    path: "/shop1",
+    name: "Shop Page",
+    component: () => import("../views/ShopPage.vue"),
   },
 ];
 const router = createRouter({

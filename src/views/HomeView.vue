@@ -32,12 +32,12 @@ const description = "Вот общая статистика по вашему б
 const username = "Андрей Полунин";
 const email = "polunin.bussiness@mail.com";
 
-// import { useRouter } from "vue-router";
+import { useRouter } from "vue-router";
 
-// const router = useRouter();
-// const signOut = () => {
-//   router.push("/login");
-// };
+const router = useRouter();
+const signOut = () => {
+  router.push("/login");
+};
 </script>
 
 <style lang="scss" scoped>

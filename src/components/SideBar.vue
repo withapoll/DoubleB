@@ -7,7 +7,7 @@
       <input type="text" v-model="search" placeholder="Что будем искать?" />
     </div>
     <div class="links">
-      <router-link to="/">
+      <router-link to="/home">
         <i class="fas fa-home"></i>
         Общая Статистика
       </router-link>
@@ -17,7 +17,7 @@
       </router-link>
       <router-link to="/shops">
         <i class="fa-solid fa-store"></i>
-        Список Кофеен
+        Кофейня
       </router-link>
       <router-link to="/orders">
         <i class="fa-solid fa-clock-rotate-left"></i>

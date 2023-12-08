@@ -6,12 +6,31 @@
     </main>
 
     <!-- Sidebar -->
-    <SideBar />
+    <SideBar v-if="showSidebar" />
+    <!-- <SideBar /> -->
   </div>
 </template>
 
 <script setup>
-import SideBar from "./components/SideBar.vue";
+import { ref, watch, onBeforeMount } from "vue";
+import { useRoute } from "vue-router";
+import SideBar from "@/components/SideBar.vue";
+
+let showSidebar = ref(true);
+let route = useRoute();
+
+onBeforeMount(() => {
+  watch(
+    () => route.path,
+    (newPath) => {
+      if (newPath === "/login") {
+        showSidebar.value = false;
+      } else {
+        showSidebar.value = true;
+      }
+    }
+  );
+});
 </script>
 
 <style lang="scss">
