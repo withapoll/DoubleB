@@ -77,7 +77,7 @@ const submitForm = () => {
 };
 
 const showDetails = () => {
-  router.push("/shop1");
+  router.push("/shoppage");
 };
 </script>
 

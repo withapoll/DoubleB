@@ -83,9 +83,7 @@ button {
   main {
     flex: 1 1 0;
     padding: 20px;
-    margin-left: var(
-      --sidebar-width
-    ); /* Replace with the width of your sidebar */
+    margin-left: var(--sidebar-width); 
     overflow-y: auto;
     height: 100vh;
     @media (max-width: 768px) {
@@ -93,5 +91,13 @@ button {
       padding-right: 10px;
     }
   }
+
+  .login-container {
+    position: fixed; 
+    left: 261px; 
+    width: var(--sidebar-width); 
+    height: 100vh; 
+  }
 }
+
 </style>
