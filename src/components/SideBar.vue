@@ -15,7 +15,7 @@
         <i class="fa-solid fa-user"></i>
         Персонал
       </router-link>
-      <router-link to="/shops">
+      <router-link to="/shop">
         <i class="fa-solid fa-store"></i>
         Кофейня
       </router-link>

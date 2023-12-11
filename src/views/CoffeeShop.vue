@@ -28,9 +28,9 @@
 <script setup>
 import ShopsStatistics from "@/components/ShopsStatistics.vue";
 const greeting = "Привет, Андрей!";
-const description = "Вот общая статистика по кофейням!";
+const description = "Вот общая статистика по кофейни!";
 const username = "Андрей Полунин";
-const email = "polunin.bussiness@mail.com";
+const email = "a.letchford@double.com";
 </script>
 
 <style lang="scss" scoped>

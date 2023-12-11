@@ -18,9 +18,9 @@ const routes = [
     component: () => import("../views/HumansView.vue"),
   },
   {
-    path: "/shops",
-    name: "Shops",
-    component: () => import("../views/CoffeeShops.vue"),
+    path: "/shop",
+    name: "Shop",
+    component: () => import("../views/CoffeeShop.vue"),
   },
   {
     path: "/orders",
@@ -36,11 +36,6 @@ const routes = [
     path: "/about",
     name: "About App",
     component: () => import("../views/AboutApp.vue"),
-  },
-  {
-    path: "/shoppage",
-    name: "Shop Page",
-    component: () => import("../views/ShopPage.vue"),
   },
 ];
 const router = createRouter({

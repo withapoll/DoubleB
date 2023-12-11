@@ -29,7 +29,7 @@ import MainStatistics from "@/components/MainStatistics.vue";
 const greeting = "Привет, Андрей!";
 const description = "Вот общая статистика по вашему бизнесу!";
 const username = "Андрей Полунин";
-const email = "polunin.bussiness@mail.com";
+const email = "a.letchford@double.com";
 
 import { useRouter } from "vue-router";
 
