@@ -16,14 +16,14 @@ import { ref, watch, onBeforeMount } from "vue";
 import { useRoute } from "vue-router";
 import SideBar from "@/components/SideBar.vue";
 
-let showSidebar = ref(true);
 let route = useRoute();
+let showSidebar = ref(route.path !== "/");
 
 onBeforeMount(() => {
   watch(
     () => route.path,
     (newPath) => {
-      if (newPath === "/login") {
+      if (newPath === "/") {
         showSidebar.value = false;
       } else {
         showSidebar.value = true;
@@ -77,7 +77,7 @@ button {
 .app {
   display: flex;
   background-color: white;
-  border-radius: 0px 20px 20px 0;
+  border-radius: 20px;
   overflow: hidden;
 
   main {

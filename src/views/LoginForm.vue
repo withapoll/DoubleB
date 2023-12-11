@@ -9,6 +9,7 @@
       </form>
       <button class="register" @click="register">Зарегистрироваться</button>
       <button class="forgot-password" @click="forgotPassword">Забыли пароль?😭</button>
+      <button class="home" @click="goHome">Home</button>
     </div>
     <div class="image-container">
 
@@ -18,6 +19,13 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const goHome = () => {
+  router.push('/home');
+};
 
 const login = ref('');
 const password = ref('');
@@ -31,7 +39,7 @@ const submitForm = () => {
 .login-container {
   display: flex;
   justify-content: center;
-  margin-left: 190px;
+  margin-left: 225px;
 }
 .login-form {
   display: flex;
