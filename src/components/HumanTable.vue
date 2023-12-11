@@ -37,6 +37,8 @@
               v-for="human in shop_humans"
               :key="human.id"
               :src="human.photo"
+              width="40"
+              height="40"
             />
           </div>
         </div>
@@ -169,7 +171,7 @@
       </div>
     </div>
   </div>
-  <div class="employee-table">
+  <div class="human-table">
     <table>
       <thead>
         <tr>
@@ -177,12 +179,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="employee in employees" :key="employee.id">
-          <td>{{ employee.name }}</td>
-          <td>{{ employee.workadress }}</td>
-          <td>{{ employee.contacts }}</td>
-          <td>{{ employee.status }}</td>
-          <td>{{ employee.income }}</td>
+        <tr v-for="human in humans" :key="human.id">
+          <td>
+            <img :src="require('@/assets/humans/human2.png')" alt="Human photo" width="50" height="50">
+            {{ human.name }}
+          </td>
+          <td>{{ human.workadress }}</td>
+          <td>{{ human.contacts }}</td>
+          <td>{{ human.status }}</td>
+          <td>{{ human.income }}</td>
         </tr>
       </tbody>
     </table>
@@ -195,11 +200,20 @@ import { ref } from "vue";
 const shop_humans = ref([
   {
     id: 1,
-    photo: "@/assets/humans/human1.png",
+    photo: require(`@/assets/humans/human3.png`),
   },
   {
     id: 2,
+    photo: require(`@/assets/humans/human4.png`),
   },
+  {
+    id: 3,
+    photo: require(`@/assets/humans/human5.png`),
+  },
+  {
+    id: 4,
+    photo: require(`@/assets/humans/human1.png`),
+  }
 ]);
 
 const fileInput = ref(null);
@@ -227,7 +241,7 @@ const headers = ref([
   "Статус",
   "Доход",
 ]);
-const employees = ref([
+const humans = ref([
   {
     id: 1,
     name: "Оля Туктарова",
@@ -366,20 +380,20 @@ const employees = ref([
   }
 }
 
-.employee-table {
+.human-table {
   width: 100%;
   margin-top: 20px;
   border-collapse: collapse;
 }
 
-.employee-table th,
-.employee-table td {
+.human-table th,
+.human-table td {
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   padding: 16px;
   text-align: left;
 }
 
-.employee-table th {
+.human-table th {
   color: rgba(0, 0, 0, 0.54);
   font-weight: 500;
   background-color: rgb(255, 255, 255);
@@ -387,7 +401,7 @@ const employees = ref([
   font-family: "Inter", sans-serif;
 }
 
-.employee-table tr:hover {
+.human-table tr:hover {
   background-color: rgba(0, 0, 0, 0.07);
 }
 </style>

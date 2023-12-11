@@ -17,8 +17,7 @@
         <p>{{ email }}</p>
       </div>
       <div class="sign-out">
-        <i id="sign-out-icon" class="fa-solid fa-right-from-bracket"></i>
-        <button @click="signOut"></button>
+        <i id="sign-out-icon" class="fa-solid fa-right-from-bracket" @click="signOut"></i>
       </div>
     </div>
   </aside>
@@ -33,12 +32,12 @@ const description = "Вот общая статистика по персона�
 const username = "Андрей Полунин";
 const email = "a.letchford@double.com";
 
-// import { useRouter } from "vue-router";
+import { useRouter } from "vue-router";
 
-// const router = useRouter();
-// const signOut = () => {
-//   router.push("/login");
-// };
+const router = useRouter();
+const signOut = () => {
+  router.push("/");
+};
 </script>
 
 <style lang="scss" scoped>
