@@ -29,7 +29,7 @@ import HumanTable from "@/components/HumanTable.vue";
 
 const greeting = "Привет, Андрей!";
 const description = "Вот общая статистика по персоналу!";
-const username = "Андрей Полунин";
+const username = "Андрей Летчфорд";
 const email = "a.letchford@double.com";
 
 import { useRouter } from "vue-router";

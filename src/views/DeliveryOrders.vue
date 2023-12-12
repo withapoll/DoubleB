@@ -29,7 +29,7 @@ import DeliveryHistory from "@/components/DeliveryHistory.vue";
 
 const greeting = "Привет, Андрей!";
 const description = "Вот история ваших заказов!";
-const username = "Андрей Полунин";
+const username = "Андрей Летчфорд";
 const email = "a.letchford@double.com";
 
 import { useRouter } from "vue-router";

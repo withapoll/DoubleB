@@ -29,7 +29,7 @@ import ShopsStatistics from "@/components/ShopsStatistics.vue";
 import { useRouter } from "vue-router";
 const greeting = "Привет, Андрей!";
 const description = "Вот общая статистика по кофейни!";
-const username = "Андрей Полунин";
+const username = "Андрей Летчфорд";
 const email = "a.letchford@double.com";
 
 const router = useRouter();
