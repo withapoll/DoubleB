@@ -288,10 +288,10 @@
         </div>
         <div class="lil-humans">
           <div class="human-profile">
-            <img src="@/assets/profile_pic.jpg" alt="Profile picture" />
+            <img src="@/assets/humans/human14.png" alt="Profile picture" />
             <div class="profile-info">
-              <h3>Полунин Андрей</h3>
-              <p>polunin.bussiness@mail.com</p>
+              <h3>Мария Ивлева</h3>
+              <p>m.ivleva@double.com</p>
               <div class="human-status">
                 <div class="status-emoji"></div>
                 <p>На месте</p>
@@ -299,10 +299,21 @@
             </div>
           </div>
           <div class="human-profile">
-            <img src="@/assets/profile_pic.jpg" alt="Profile picture" />
+            <img src="@/assets/humans/human7.png" alt="Profile picture" />
             <div class="profile-info">
-              <h3>Полунин Андрей</h3>
-              <p>polunin.bussiness@mail.com</p>
+              <h3>Саша Белова</h3>
+              <p>s.belova@double.com</p>
+              <div class="human-status">
+                <div class="status-emoji"></div>
+                <p>Опаздывает</p>
+              </div>
+            </div>
+          </div>
+          <div class="human-profile">
+            <img src="@/assets/humans/human2.png" alt="Profile picture" />
+            <div class="profile-info">
+              <h3>Соня Глуцкова</h3>
+              <p>s.gluckova@double.com</p>
               <div class="human-status">
                 <div class="status-emoji"></div>
                 <p>На месте</p>
@@ -310,32 +321,21 @@
             </div>
           </div>
           <div class="human-profile">
-            <img src="@/assets/profile_pic.jpg" alt="Profile picture" />
+            <img src="@/assets/humans/human4.png" alt="Profile picture" />
             <div class="profile-info">
-              <h3>Полунин Андрей</h3>
-              <p>polunin.bussiness@mail.com</p>
+              <h3>Олег Тин</h3>
+              <p>o.tin@double.com</p>
               <div class="human-status">
                 <div class="status-emoji"></div>
-                <p>На месте</p>
+                <p>Отсутствует</p>
               </div>
             </div>
           </div>
           <div class="human-profile">
-            <img src="@/assets/profile_pic.jpg" alt="Profile picture" />
+            <img src="@/assets/humans/human5.png" alt="Profile picture" />
             <div class="profile-info">
-              <h3>Полунин Андрей</h3>
-              <p>polunin.bussiness@mail.com</p>
-              <div class="human-status">
-                <div class="status-emoji"></div>
-                <p>На месте</p>
-              </div>
-            </div>
-          </div>
-          <div class="human-profile">
-            <img src="@/assets/profile_pic.jpg" alt="Profile picture" />
-            <div class="profile-info">
-              <h3>Полунин Андрей</h3>
-              <p>polunin.bussiness@mail.com</p>
+              <h3>Анна Дмитриева</h3>
+              <p>a.dmitrieva@double.com</p>
               <div class="human-status">
                 <div class="status-emoji"></div>
                 <p>На месте</p>
