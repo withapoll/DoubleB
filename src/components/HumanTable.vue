@@ -34,7 +34,7 @@
         <div class="card_footer">
           <div class="human-photos">
             <img
-              v-for="human in shop_humans"
+              v-for="human in all_humans"
               :key="human.id"
               :src="human.photo"
               width="40"
@@ -63,30 +63,15 @@
         </div>
         <h3>12</h3>
         <div class="card_footer">
-          <div class="card_header_icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M2 12C2 7.286 2 4.929 3.464 3.464C4.93 2 7.286 2 12 2C16.714 2 19.071 2 20.535 3.464C22 4.93 22 7.286 22 12C22 16.714 22 19.071 20.535 20.535C19.072 22 16.714 22 12 22C7.286 22 4.929 22 3.464 20.535C2 19.072 2 16.714 2 12Z"
-                stroke="#71DD4B"
-                stroke-width="1.5"
-              />
-              <path
-                d="M7 14L9.293 11.707C9.48053 11.5195 9.73484 11.4142 10 11.4142C10.2652 11.4142 10.5195 11.5195 10.707 11.707L12.293 13.293C12.4805 13.4805 12.7348 13.5858 13 13.5858C13.2652 13.5858 13.5195 13.4805 13.707 13.293L17 10M17 10V12.5M17 10H14.5"
-                stroke="#71DD4B"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-
-          <p>+15% от предущего месяца</p>
+          <div class="human-photos">
+            <img 
+            v-for="human in ill_humans"
+              :key="human.id"
+              :src="human.photo"
+              width="40"
+              height="40"
+            />
+        </div>
         </div>
       </div>
       <div class="card">
@@ -113,30 +98,15 @@
         </div>
         <h3>13</h3>
         <div class="card_footer">
-          <div class="card_header_icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M2 12C2 7.286 2 4.929 3.464 3.464C4.93 2 7.286 2 12 2C16.714 2 19.071 2 20.535 3.464C22 4.93 22 7.286 22 12C22 16.714 22 19.071 20.535 20.535C19.072 22 16.714 22 12 22C7.286 22 4.929 22 3.464 20.535C2 19.072 2 16.714 2 12Z"
-                stroke="#71DD4B"
-                stroke-width="1.5"
-              />
-              <path
-                d="M7 14L9.293 11.707C9.48053 11.5195 9.73484 11.4142 10 11.4142C10.2652 11.4142 10.5195 11.5195 10.707 11.707L12.293 13.293C12.4805 13.4805 12.7348 13.5858 13 13.5858C13.2652 13.5858 13.5195 13.4805 13.707 13.293L17 10M17 10V12.5M17 10H14.5"
-                stroke="#71DD4B"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+          <div class="human-photos">
+            <img 
+            v-for="human in vacation_humans"
+              :key="human.id"
+              :src="human.photo"
+              width="40"
+              height="40"
+            />
           </div>
-
-          <p>+15% от предущего месяца</p>
         </div>
       </div>
     </div>
@@ -181,7 +151,7 @@
       <tbody>
         <tr v-for="human in humans" :key="human.id">
           <td>
-            <img :src="require('@/assets/humans/human2.png')" alt="Human photo" width="50" height="50">
+            <img :src="require(`@/assets/humans/${human.image}`)" alt="Human photo" width="50" height="50">
             {{ human.name }}
           </td>
           <td>{{ human.workadress }}</td>
@@ -197,7 +167,7 @@
 <script setup>
 import { ref } from "vue";
 
-const shop_humans = ref([
+const all_humans = ref([
   {
     id: 1,
     photo: require(`@/assets/humans/human3.png`),
@@ -215,6 +185,45 @@ const shop_humans = ref([
     photo: require(`@/assets/humans/human1.png`),
   }
 ]);
+
+const ill_humans = ref([
+  {
+    id: 1,
+    photo: require(`@/assets/humans/human10.png`),
+  },
+  {
+    id: 2,
+    photo: require(`@/assets/humans/human11.png`),
+  },
+  {
+    id: 3,
+    photo: require(`@/assets/humans/human12.png`),
+  },
+  {
+    id: 4,
+    photo: require(`@/assets/humans/human13.png`),
+  },
+]);
+
+const vacation_humans = ref([
+  {
+    id: 1,
+    photo: require(`@/assets/humans/human6.png`),
+  },
+  {
+    id: 2,
+    photo: require(`@/assets/humans/human7.png`),
+  },
+  {
+    id: 3,
+    photo: require(`@/assets/humans/human8.png`),
+  },
+  {
+    id: 4,
+    photo: require(`@/assets/humans/human9.png`),
+  },
+
+]); 
 
 const fileInput = ref(null);
 
@@ -241,48 +250,18 @@ const headers = ref([
   "Статус",
   "Доход",
 ]);
+
 const humans = ref([
-  {
-    id: 1,
-    name: "Оля Туктарова",
-    workadress: "ул. Театральный проспект 42б",
-    contacts: "8(800)555-35-35",
-    status: "На месте",
-    income: "$1200",
-  },
-  {
-    id: 2,
-    name: "Дмитрий Иванов",
-    workadress: "ул. Театральный проспект 42б",
-    contacts: "8(800)555-35-35",
-    status: "На месте",
-    income: "$1200",
-  },
-  {
-    id: 3,
-    name: "Александр Петров",
-    workadress: "ул. Театральный проспект 42б",
-    contacts: "8(800)555-35-35",
-    status: "На месте",
-    income: "$1200",
-  },
-  {
-    id: 4,
-    name: "Александр Петров",
-    workadress: "ул. Театральный проспект 42б",
-    contacts: "8(800)555-35-35",
-    status: "На месте",
-    income: "$1200",
-  },
-  {
-    id: 5,
-    name: "Александр Петров",
-    workadress: "ул. Театральный проспект 42б",
-    contacts: "8(800)555-35-35",
-    status: "На месте",
-    income: "$1200",
-  },
+  { id: 1, name: 'John Doe', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human2.png' },
+  { id: 2, name: 'Jane Doe', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human3.png' },
+  { id: 3, name: 'Bob Smith', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human4.png' },
+  { id: 4, name: 'Alice Johnson', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human5.png' },
+  { id: 5, name: 'Mike Williams', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human6.png' },
+  { id: 6, name: 'Sarah Brown', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human7.png' },
+  { id: 7, name: 'David Davis', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human8.png' },
+  // more humans...
 ]);
+
 </script>
 
 <style lang="scss" scoped>
@@ -317,6 +296,7 @@ const humans = ref([
       align-items: center;
     }
   }
+
   &_footer {
     display: flex;
     justify-content: space-between;
@@ -324,6 +304,7 @@ const humans = ref([
     width: 178px;
     margin-top: 10px;
   }
+
 }
 
 .content-header {
