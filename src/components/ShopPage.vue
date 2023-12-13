@@ -24,6 +24,7 @@
 }
 .search-container {
   display: flex;
+  margin-bottom: 32px;
 
   input[type="text"] {
     width: 409px;

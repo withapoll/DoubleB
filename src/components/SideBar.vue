@@ -19,10 +19,10 @@
         <i class="fa-solid fa-store"></i>
         Кофейня
       </router-link>
-      <router-link to="/orders">
-        <i class="fa-solid fa-clock-rotate-left"></i>
-        История Заказов
-      </router-link>
+      <router-link to="/about">
+          <i class="fas fa-info"></i>
+          О приложении
+        </router-link>
     </div>
     <div class="notifications">
       <div class="notification">
@@ -81,14 +81,6 @@
             </defs>
           </svg>
         </button>
-      </div>
-    </div>
-    <div class="about-app">
-      <div class="link">
-        <router-link to="/about" class="link-style">
-          <i class="fas fa-info"></i>
-          О приложении
-        </router-link>
       </div>
     </div>
   </aside>

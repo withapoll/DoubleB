@@ -21,10 +21,12 @@
       </div>
     </div>
   </aside>
+  <ShopPage />
   <ShopsStatistics />
 </template>
 
 <script setup>
+import ShopPage from "@/components/ShopPage.vue";
 import ShopsStatistics from "@/components/ShopsStatistics.vue";
 import { useRouter } from "vue-router";
 const greeting = "Привет, Андрей!";

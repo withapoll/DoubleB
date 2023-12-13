@@ -1,109 +1,280 @@
 <template>
-  <div>
-    <div class="cards">
+  <div class="layout">
+    <div class="left-layout">
+    <div class="storage-chart">
+    <h3>Динамика Запасов</h3>
+  </div>
+  <div class="delivery-history">
+    <h3>История Заказов</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Компания</th>
+          <th>Дата Доставки</th>
+          <th>Контакты</th>
+          <th>Цена</th>
+          <th>Статус</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ООО "Компания"</td>
+          <td>01.01.2023</td>
+          <td>+7 (999) 999-99-99</td>
+          <td>1000</td>
+          <td>Осуществляется Доставка</td>
+        </tr>
+        <tr>
+          <td>ООО "Компания"</td>
+          <td>01.01.2023</td>
+          <td>+7 (999) 999-99-99</td>
+          <td>1000</td>
+          <td>Осуществляется Доставка</td>
+        </tr>
+        <tr>
+          <td>ООО "Компания"</td>
+          <td>01.01.2023</td>
+          <td>+7 (999) 999-99-99</td>
+          <td>1000</td>
+          <td>Осуществляется Доставка</td>
+        </tr>
+        <tr>
+          <td>ООО "Компания"</td>
+          <td>01.01.2023</td>
+          <td>+7 (999) 999-99-99</td>
+          <td>1000</td>
+          <td>Осуществляется Доставка</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  <div class="right-layout">
+    <div class="delivery-tracking">
       <div class="card">
-        <div class="card_header">
-          <p>Доставок на склады</p>
-          <div class="card_header_icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M5 17C5 17.5304 5.21071 18.0391 5.58579 18.4142C5.96086 18.7893 6.46957 19 7 19C7.53043 19 8.03914 18.7893 8.41421 18.4142C8.78929 18.0391 9 17.5304 9 17C9 16.4696 8.78929 15.9609 8.41421 15.5858C8.03914 15.2107 7.53043 15 7 15C6.46957 15 5.96086 15.2107 5.58579 15.5858C5.21071 15.9609 5 16.4696 5 17ZM15 17C15 17.5304 15.2107 18.0391 15.5858 18.4142C15.9609 18.7893 16.4696 19 17 19C17.5304 19 18.0391 18.7893 18.4142 18.4142C18.7893 18.0391 19 17.5304 19 17C19 16.4696 18.7893 15.9609 18.4142 15.5858C18.0391 15.2107 17.5304 15 17 15C16.4696 15 15.9609 15.2107 15.5858 15.5858C15.2107 15.9609 15 16.4696 15 17Z"
-                stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M5 17H3V13M2 5H13V17M9 17H15M19 17H21V11M21 11H13M21 11L18 6H13M3 9H7"
-                stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
+        <h1>{{ delivery_title }}</h1>
+        <p class="address">{{ delivery_code }}</p>
+        <div class="price">
+          <p>Цена</p>
         </div>
-        <h3>79 доставок</h3>
-        <div class="card_footer">
-          <div class="card_header_icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M2 12C2 7.286 2 4.929 3.464 3.464C4.93 2 7.286 2 12 2C16.714 2 19.071 2 20.535 3.464C22 4.93 22 7.286 22 12C22 16.714 22 19.071 20.535 20.535C19.072 22 16.714 22 12 22C7.286 22 4.929 22 3.464 20.535C2 19.072 2 16.714 2 12Z"
-                stroke="#71DD4B"
-                stroke-width="1.5"
-              />
-              <path
-                d="M7 14L9.293 11.707C9.48053 11.5195 9.73484 11.4142 10 11.4142C10.2652 11.4142 10.5195 11.5195 10.707 11.707L12.293 13.293C12.4805 13.4805 12.7348 13.5858 13 13.5858C13.2652 13.5858 13.5195 13.4805 13.707 13.293L17 10M17 10V12.5M17 10H14.5"
-                stroke="#71DD4B"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+        <div class="delicery_schedule">
+          <p>Расписание</p>
+        </div>
+        <p class="delivery-status">{{ active_deliveryStatus }}</p>
+        <div class="progress-bar">
+          <div class="progress" :style="{ width: progress + '%' }"></div>
+          <div class="arrow"></div>
+        </div>
+        <p class="timer">{{ timer }}</p>
+        <div class="delivery-company">
+          <div id="company-name">
+            <div class="company-logo">              
+              <img :src="delivery_company.logo" width="40" height="40" />
+              <p>{{ delivery_company.name }}</p>
+            </div>
           </div>
-          <p>+15% от предущего месяца</p>
         </div>
       </div>
     </div>
+
+    <div class="storage-capacity">
+      <div class="card">
+    <h1>{{ storage_title }}</h1>
+    <p class="address">{{ storage_address }}</p>
+    <div class="milk">
+      <p>Молоко</p>
+      <p class="count">{{ milk_count }}</p>
+    </div>
+    <div class="coffee">
+      <p>Кофе</p>
+      <p class="count">{{ coffee_count }}</p>
+    </div>
+    <p class="delivery-status">{{ storage_deliveryStatus }}</p>
+    <div class="progress-bar">
+      <div class="progress" :style="{ width: progress + '%' }"></div>
+      <div class="arrow"></div>
+    </div>
+    <p class="timer">{{ timer }}</p>
+    <button id="orderDelivery" @click="orderDelivery">Заказать Доставку?</button>
   </div>
-  <ShopPage />
+    </div>
+  </div>
+</div>
 </template>
 
 <script setup>
-import ShopPage from "@/components/ShopPage.vue";
+const delivery_title = 'Активный Заказ'
+const storage_title = "Запасы";
+const delivery_code = "GCGKH92129";
+const active_deliveryStatus = "Осуществляется Доставка";
+
+const delivery_company = {
+  name: 'Company Name', 
+  logo: require('@/assets/humans/human2.png' )
+};
+
+
+const storage_address = "ул. Театральный проспект 426";
+const  milk_count = "15 штук";
+const coffee_count = "25 штук";
+const storage_deliveryStatus = "Осуществляется Доставка";
+const progress = 75;
+const timer = "осталось ~2 часа";
 </script>
 
 <style lang="scss" scoped>
-.cards {
+.layout {
   display: flex;
-  margin-bottom: 18px;
+  justify-content: space-between;
+  gap: 16px; 
+}
+.left-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.right-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.storage-chart{
+  width: 590px;
+  height: 290px;
+  background-color: white;
+  border: solid 1px rgba(224, 224, 224, 1);
+  border-radius: 30px;
+  padding: 15px;
+}
+
+.delivery-history {
+  background-color: white;
+  border: solid 1px rgba(224, 224, 224, 1);
+  border-radius: 30px;
+  padding: 15px;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    th, td {
+      border-bottom: 1px solid rgba(224, 224, 224, 1);
+      padding: 16px;
+      text-align: left;
+    }
+    th {
+      color: rgba(0, 0, 0, 0.54);
+      font-weight: 500;
+      background-color: rgb(255, 255, 255);
+      color: black;
+      font-family: "Inter", sans-serif;
+    }
+    td {
+      text-align: center;
+    }
+    tr:hover {
+      background-color: rgba(0, 0, 0, 0.07);
+    }
+  }
 }
 
 .card {
   border: 1px solid rgba(0, 0, 0, 0.2);
   background-color: #fff;
-  border-radius: 30px;
-  margin-right: 10px;
-  padding: 24px;
-  height: 150px;
-  width: 228px;
-  flex-shrink: 1;
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 18px;
+  width: fit-content;
+  height: fit-content;
+  h1 {
+    color: #000;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  p {
+    color: #646464;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .address {
+    color: #808080;
+    margin-bottom: 20px;
+    margin-top: 10px;
 
-  &_header {
-    display: flex;
-    justify-content: space-between;
+  }
+  .icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+    justify-content: center;
     align-items: center;
-    width: 178px;
-    & .card_header_icon {
-      background-color: #d9d9d9;
-      border-radius: 50%;
-      width: 38px;
-      height: 38px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    color: #222;
+    background-color: #e8e6e6;
+  }
+  .milk,
+  .coffee {
+    display: flex;
+    gap: 50px;
+  }
+  .schedule {
+    color: #808080;
+  }
+  .delivery-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a0a33c;
+    background-color: #e8e6e6;
+    width: 290px;
+    height: 38px;
+    border-radius: 15px;
+    margin-top: 32px;
+  }
+  .progress-bar {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background-color: #000;
+    border-radius: 50px;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    .progress {
+      position: absolute;
+      height: 100%;
+      background-color: #ffd700;
+      border-radius: 50px;
     }
   }
-  &_footer {
+  .timer {
+    color: #808080;
     display: flex;
-    justify-content: space-between;
-    gap: 5px;
-    width: 178px;
-    margin-top: 10px;
+    justify-content: center;
+    // Add your styles for the timer
   }
+}
+#orderDelivery {
+  border-radius: 15px;
+  background: #dde144;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  width: 290px;
+  height: 38px;
+  padding: 13px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.company-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 </style>
