@@ -145,7 +145,9 @@
     <table>
       <thead>
         <tr>
-          <th v-for="header in headers" :key="header">{{ header }}</th>
+          <th v-for="header in headers" :key="header.text">
+            <i :class="header.icon"></i> {{ header.text }}
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -244,11 +246,11 @@ const handleFileImport = (event) => {
 };
 
 const headers = ref([
-  "ФИО Сотрудника",
-  "Место работы",
-  "Контакты",
-  "Статус",
-  "Доход",
+  { text: 'ФИО Сотрудника', icon: 'fas fa-user' },
+  { text: 'Место работы', icon: 'fas fa-map-marker-alt' },
+  { text: 'Контакты', icon: 'fas fa-phone' },
+  { text: 'Статус', icon: 'fas fa-info-circle' },
+  { text: 'Доход', icon: 'fas fa-dollar-sign' }
 ]);
 
 const humans = ref([

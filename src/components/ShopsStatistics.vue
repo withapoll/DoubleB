@@ -6,15 +6,14 @@
     <canvas ref="storageChart"></canvas>
   </div>
   <div class="delivery-history">
-    <h3>История Заказов</h3>
     <table>
       <thead>
         <tr>
-          <th>Компания</th>
-          <th>Дата Доставки</th>
-          <th>Контакты</th>
-          <th>Цена</th>
-          <th>Статус</th>
+          <th><i class="fas fa-building"></i> Компания</th>
+          <th><i class="fas fa-calendar-alt"></i> Дата Доставки</th>
+          <th><i class="fas fa-phone"></i> Контакты</th>
+          <th><i class="fas fa-money-bill-wave"></i> Цена</th>
+          <th><i class="fas fa-truck"></i> Статус</th>
         </tr>
       </thead>
       <tbody>
@@ -315,6 +314,7 @@ const timer = "осталось ~2 часа";
   display: flex;
   align-items: center;
   gap: 15px;
+  margin-top: 20px;
 }
 
 .delivery-company-name {
