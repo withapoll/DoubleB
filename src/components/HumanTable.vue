@@ -30,7 +30,7 @@
             </svg>
           </div>
         </div>
-        <h3>219</h3>
+        <h3>15</h3>
         <div class="card_footer">
           <div class="human-photos">
             <img
@@ -61,7 +61,7 @@
             </svg>
           </div>
         </div>
-        <h3>12</h3>
+        <h3>4</h3>
         <div class="card_footer">
           <div class="human-photos">
             <img 
@@ -96,7 +96,7 @@
             </svg>
           </div>
         </div>
-        <h3>13</h3>
+        <h3>4</h3>
         <div class="card_footer">
           <div class="human-photos">
             <img 
@@ -254,7 +254,7 @@ const headers = ref([
 ]);
 
 const humans = ref([
-  { id: 1, name: 'John Doe', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human2.png' },
+  { id: 1, name: 'Соня Глуцкова', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human2.png' },
   { id: 2, name: 'Jane Doe', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human3.png' },
   { id: 3, name: 'Bob Smith', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human4.png' },
   { id: 4, name: 'Alice Johnson', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human5.png' },
@@ -364,27 +364,32 @@ const humans = ref([
 }
 
 .human-table {
-  width: 100%;
   margin-top: 20px;
-  border-collapse: collapse;
-}
-
-.human-table th,
-.human-table td {
-  border-bottom: 1px solid rgba(224, 224, 224, 1);
-  padding: 16px;
-  text-align: left;
-}
-
-.human-table th {
-  color: rgba(0, 0, 0, 0.54);
-  font-weight: 500;
-  background-color: rgb(255, 255, 255);
-  color: black;
-  font-family: "Inter", sans-serif;
-}
-
-.human-table tr:hover {
-  background-color: rgba(0, 0, 0, 0.07);
+  background-color: white;
+  border: solid 1px rgba(224, 224, 224, 1);
+  border-radius: 30px;
+  padding: 15px;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    th, td {
+      border-bottom: 1px solid rgba(224, 224, 224, 1);
+      padding: 16px;
+      text-align: left;
+    }
+    th {
+      color: rgba(0, 0, 0, 0.54);
+      font-weight: 500;
+      background-color: rgb(255, 255, 255);
+      color: black;
+      font-family: "Inter", sans-serif;
+    }
+    td {
+      text-align: center;
+    }
+    tr:hover {
+      background-color: rgba(0, 0, 0, 0.07);
+    }
+  }
 }
 </style>

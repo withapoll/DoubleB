@@ -38,13 +38,6 @@
           <td>1000</td>
           <td>Осуществляется Доставка</td>
         </tr>
-        <tr>
-          <td>ООО "Компания"</td>
-          <td>01.01.2023</td>
-          <td>+7 (999) 999-99-99</td>
-          <td>1000</td>
-          <td>Осуществляется Доставка</td>
-        </tr>
       </tbody>
     </table>
   </div>
@@ -113,33 +106,99 @@ const storageChart = ref(null);
 
 onMounted(() => {
   const ctx = storageChart.value.getContext('2d');
+
+  // gradient for the fill color
+  let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+  gradient.addColorStop(0, 'rgba(75, 192, 192, 0.5)');
+  gradient.addColorStop(1, 'rgba(75, 192, 192, 0.1)');
+
   new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ['Milk', 'Coffee'], // replace with your actual labels
-      datasets: [{
-        label: 'Storage Capacity',
-        data: [15, 25], // replace with your actual data
-        backgroundColor: [
-          'rgba(75, 192, 192, 0.2)', // color for 'Milk'
-          'rgba(153, 102, 255, 0.2)' // color for 'Coffee'
-        ],
-        borderColor: [
-          'rgba(75, 192, 192, 1)', // color for 'Milk'
-          'rgba(153, 102, 255, 1)' // color for 'Coffee'
-        ],
-        borderWidth: 1
-      }]
+      labels: ['January', 'February', 'March', 'April', 'May'], // replace with actual labels
+      datasets: [
+        {
+          label: 'Молоко',
+          data: [10, 15, 7, 10, 15], // replace with actual data
+          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: gradient,
+          borderWidth: 1,
+          pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(75, 192, 192, 1)'
+        },
+        {
+          label: 'Кофе',
+          data: [16, 22, 13, 21, 25], // replace with actual data
+          borderColor: 'rgba(153, 102, 255, 1)',
+          backgroundColor: gradient,
+          borderWidth: 1,
+          pointBackgroundColor: 'rgba(153, 102, 255, 1)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(153, 102, 255, 1)'
+        },
+        {
+          label: 'Закуски ',
+          data: [28, 35, 25, 35, 45], // replace with actual data
+          borderColor: 'rgba(255, 159, 64, 1)',
+          backgroundColor: gradient,
+          borderWidth: 1,
+          pointBackgroundColor: 'rgba(255, 159, 64, 1)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(255, 159, 64, 1)'
+        }
+      ]
     },
     options: {
+      responsive: true,
       scales: {
         y: {
-          beginAtZero: true
+          beginAtZero: true,
+          grid: {
+            drawOnChartArea: false
+          },
+          ticks: {
+            color: '#4f4f4f',
+            font: {
+              size: 14
+            }
+          }
+        },
+        x: {
+          grid: {
+            drawOnChartArea: false
+          },
+          ticks: {
+            color: '#4f4f4f',
+            font: {
+              size: 14
+            }
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: '#4f4f4f',
+            font: {
+              size: 14
+            }
+          }
+        },
+        tooltip: {
+          backgroundColor: '#efefef',
+          titleColor: '#4f4f4f',
+          bodyColor: '#4f4f4f',
+          footerColor: '#4f4f4f'
         }
       }
     }
   });
 });
+
 
 const delivery_title = 'Активный Заказ'
 const storage_title = "Запасы";
@@ -153,7 +212,7 @@ const delivery_company = {
 };
 
 
-const storage_address = "ул. Театральный проспект 426";
+const storage_address = "ул. Театральный проспект 42б";
 const  milk_count = "15 штук";
 const coffee_count = "25 штук";
 const storage_deliveryStatus = "Осуществляется Доставка";
@@ -179,7 +238,7 @@ const timer = "осталось ~2 часа";
 }
 .storage-chart{
   width: 590px;
-  height: 290px;
+  height: 350px;
   background-color: white;
   border: solid 1px rgba(224, 224, 224, 1);
   border-radius: 30px;
@@ -187,10 +246,12 @@ const timer = "осталось ~2 часа";
 }
 
 .delivery-history {
+  margin-top: 20px;
   background-color: white;
   border: solid 1px rgba(224, 224, 224, 1);
   border-radius: 30px;
   padding: 15px;
+  height: 350px;
   table {
     width: 100%;
     border-collapse: collapse;
@@ -220,7 +281,7 @@ const timer = "осталось ~2 часа";
   background-color: #fff;
   border-radius: 50px;
   padding: 20px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   width: fit-content;
   height: fit-content;
   h1 {
