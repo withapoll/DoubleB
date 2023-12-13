@@ -3,6 +3,7 @@
     <div class="left-layout">
     <div class="storage-chart">
     <h3>Динамика Запасов</h3>
+    <canvas ref="storageChart"></canvas>
   </div>
   <div class="delivery-history">
     <h3>История Заказов</h3>
@@ -70,7 +71,10 @@
           <div id="company-name">
             <div class="company-logo">              
               <img :src="delivery_company.logo" width="40" height="40" />
-              <p>{{ delivery_company.name }}</p>
+              <div class="company-info">
+                <p class="delivery-company-name">{{ delivery_company.name }}</p>
+                <p class="delivery-company-email">{{ delivery_company.email }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -103,6 +107,41 @@
 </template>
 
 <script setup>
+import { Chart } from 'chart.js';
+import { ref, onMounted } from 'vue';
+
+const storageChart = ref(null);
+
+onMounted(() => {
+  const ctx = storageChart.value.getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Milk', 'Coffee'], // replace with your actual labels
+      datasets: [{
+        label: 'Storage Capacity',
+        data: [15, 25], // replace with your actual data
+        backgroundColor: [
+          'rgba(75, 192, 192, 0.2)', // color for 'Milk'
+          'rgba(153, 102, 255, 0.2)' // color for 'Coffee'
+        ],
+        borderColor: [
+          'rgba(75, 192, 192, 1)', // color for 'Milk'
+          'rgba(153, 102, 255, 1)' // color for 'Coffee'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+});
+
 const delivery_title = 'Активный Заказ'
 const storage_title = "Запасы";
 const delivery_code = "GCGKH92129";
@@ -110,6 +149,7 @@ const active_deliveryStatus = "Осуществляется Доставка";
 
 const delivery_company = {
   name: 'Company Name', 
+  email: 'company@mail.com',
   logo: require('@/assets/humans/human2.png' )
 };
 
@@ -271,10 +311,21 @@ const timer = "осталось ~2 часа";
   justify-content: center;
   align-items: center;
 }
-
 .company-logo {
   display: flex;
   align-items: center;
   gap: 15px;
+}
+
+.delivery-company-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.delivery-company-email {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
 }
 </style>
