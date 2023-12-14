@@ -254,14 +254,21 @@ const headers = ref([
 ]);
 
 const humans = ref([
-  { id: 1, name: 'Соня Глуцкова', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human2.png' },
-  { id: 2, name: 'Jane Doe', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human3.png' },
-  { id: 3, name: 'Bob Smith', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human4.png' },
-  { id: 4, name: 'Alice Johnson', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human5.png' },
-  { id: 5, name: 'Mike Williams', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human6.png' },
-  { id: 6, name: 'Sarah Brown', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human7.png' },
-  { id: 7, name: 'David Davis', workadress: '...', contacts: '...', status: '...', income: '...', image: 'human8.png' },
-  // more humans...
+  { id: 1, name: 'Соня Глуцкова', workadress: 'ул. Театральный проспект 42б', contacts: 's.gluczkova@double.com', status: 'На месте', income: '45 750₽', image: 'human2.png' },
+  { id: 2, name: 'Марк Трофимов', workadress: 'ул. Театральный проспект 42б', contacts: 'm.trofimov@double.com', status: 'Отсутствует', income: '35 840₽', image: 'human3.png' },
+  { id: 3, name: 'Олег Тин', workadress: 'ул. Театральный проспект 42б', contacts: 'o.tin@double.com', status: 'На месте', income: '52 350₽', image: 'human4.png' },
+  { id: 4, name: 'Анна Дмитриева', workadress: 'ул. Театральный проспект 42б', contacts: 'a.dmitrieva@double.com', status: 'Отсутствует', income: '43 750₽', image: 'human5.png' },
+  { id: 5, name: 'Виктория Иванова', workadress: 'ул. Театральный проспект 42б', contacts: 'v.ivanova@double.com', status: 'На месте', income: '38 650₽', image: 'human6.png' },
+  { id: 6, name: 'Саша Белова', workadress: 'ул. Театральный проспект 42б', contacts: 's.belova@double.com', status: 'На месте', income: '38 920₽', image: 'human7.png' },
+  { id: 7, name: 'Александр Смирнов', workadress: 'ул. Театральный проспект 42б', contacts: 'a.smirnov@double.com', status: 'Опаздывает', income: '31 430₽', image: 'human8.png' },
+  { id: 8, name: 'Виктория Кузнецова', workadress: 'ул. Театральный проспект 42б', contacts: 'v.kuznetsova@double.com', status: 'На месте', income: '35 650₽', image: 'human9.png' },
+  { id: 9, name: 'Антон Петров', workadress: 'ул. Театральный проспект 42б', contacts: 'a.petrov@double.com', status: 'Опаздывает', income: '38 920₽', image: 'human10.png' },
+  { id: 10, name: 'Даниил Николаев', workadress: 'ул. Театральный проспект 42б', contacts: 'd.nikolaev@double.com', status: 'Опаздывает', income: '44 320₽', image: 'human11.png' },
+  { id: 11, name: 'Юля Петрова', workadress: 'ул. Театральный проспект 42б', contacts: 'j.petrova@double.com', status: 'На месте', income: '40 290₽', image: 'human12.png' },
+  { id: 12, name: 'Мария Алексеева', workadress: 'ул. Театральный проспект 42б', contacts: 'm.alexeva@double.com', status: 'На месте', income: '38 420₽', image: 'human13.png' },
+  { id: 13, name: 'Мария Ивлева', workadress: 'ул. Театральный проспект 42б', contacts: 'm.ivleva@double.com', status: 'Отсутствует', income: '37 220₽', image: 'human14.png' },
+  { id: 14, name: 'Кирилл Николаев', workadress: 'ул. Театральный проспект 42б', contacts: 'k.nicolaev@double.com', status: 'Опаздывает', income: '35 920₽', image: 'human15.png' },
+  { id: 15, name: 'Андрей Лебедев', workadress: 'ул. Театральный проспект 42б', contacts: 'a.lebedev@double.com', status: 'Отсутствует', income: ' 0.1₽', image: 'human1.png' },
 ]);
 
 </script>

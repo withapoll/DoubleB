@@ -369,7 +369,7 @@ const months = [
   "Ноя",
   "Дек",
 ];
-const incomeData = months.map(() => Math.floor(Math.random() * 10000) + 1000);
+const incomeData = months.map(() => Math.floor(Math.random() * 10000) + 1000); //replace with actual data
 
 onMounted(() => {
   ctx = document.getElementById("income-chart").getContext("2d");

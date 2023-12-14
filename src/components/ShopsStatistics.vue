@@ -113,42 +113,27 @@ onMounted(() => {
   gradient.addColorStop(1, 'rgba(75, 192, 192, 0.1)');
 
   new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
-      labels: ['January', 'February', 'March', 'April', 'May'], // replace with actual labels
+      labels: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май'], // replace with actual labels
       datasets: [
         {
           label: 'Молоко',
           data: [10, 15, 7, 10, 15], // replace with actual data
-          borderColor: 'rgba(75, 192, 192, 1)',
-          backgroundColor: gradient,
-          borderWidth: 1,
-          pointBackgroundColor: 'rgba(75, 192, 192, 1)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgba(75, 192, 192, 1)'
+          backgroundColor: "rgba(221, 225, 68, 1)", 
+          borderRadius: 10,
         },
         {
           label: 'Кофе',
           data: [16, 22, 13, 21, 25], // replace with actual data
-          borderColor: 'rgba(153, 102, 255, 1)',
-          backgroundColor: gradient,
-          borderWidth: 1,
-          pointBackgroundColor: 'rgba(153, 102, 255, 1)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgba(153, 102, 255, 1)'
+          backgroundColor: "rgba(54, 162, 235, 0.2)", //change color 
+          borderRadius: 10,
         },
         {
           label: 'Закуски ',
           data: [28, 35, 25, 35, 45], // replace with actual data
-          borderColor: 'rgba(255, 159, 64, 1)',
-          backgroundColor: gradient,
-          borderWidth: 1,
-          pointBackgroundColor: 'rgba(255, 159, 64, 1)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgba(255, 159, 64, 1)'
+          backgroundColor: "rgba(255, 206, 86, 0.2)", //change color 
+          borderRadius: 10,
         }
       ]
     },
@@ -181,6 +166,7 @@ onMounted(() => {
       },
       plugins: {
         legend: {
+          display: false,
           labels: {
             color: '#4f4f4f',
             font: {
