@@ -7,11 +7,13 @@ Home
 
 
 Sidebar
-![nav bar clear notification](https://github.com/withapoll/DoubleB/assets/59768263/43fbc204-485b-4ca3-ab87-cde33a27038e)
+<img width="409" alt="nav bar clear notification" src="https://github.com/withapoll/DoubleB/assets/59768263/ca815675-24a7-4e43-8c8b-8a682913c59b">
+
 
 Components example
-![delivery tracking](https://github.com/withapoll/DoubleB/assets/59768263/75936693-1288-49fe-a34b-f3940eb6cf68)
-![storage capacity](https://github.com/withapoll/DoubleB/assets/59768263/f728e841-ed0e-4aeb-b819-e166db0838c8)
+![delivery tracking](https://github.com/withapoll/DoubleB/assets/59768263/b5e5a877-6a28-4627-b4c9-5828dafaffe7)
+![storage capacity](https://github.com/withapoll/DoubleB/assets/59768263/b119ae83-36bc-46d0-8cfd-ac7f89707717)
+
 
 
 ## Project setup
