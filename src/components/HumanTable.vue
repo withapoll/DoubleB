@@ -296,7 +296,7 @@ const humans = ref([
     align-items: center;
     width: 178px;
     & .card_header_icon {
-      background-color: #d9d9d9;
+      background-color: #eee;
       border-radius: 50%;
       width: 38px;
       height: 38px;

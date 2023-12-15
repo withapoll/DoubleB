@@ -120,7 +120,7 @@
       </div>
       <div class="card">
         <div class="card_header">
-          <p>Кофеейни</p>
+          <p>Заказы</p>
           <div class="card_header_icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +143,7 @@
             </svg>
           </div>
         </div>
-        <h3>73 кофейни</h3>
+        <h3>73 Заказов</h3>
         <div class="card_footer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -202,7 +202,7 @@
             </svg>
           </div>
         </div>
-        <h3>219 человек</h3>
+        <h3>15 человек</h3>
         <div class="card_footer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -460,7 +460,7 @@ const users = ref([
     align-items: center;
     width: 178px;
     & .card_header_icon {
-      background-color: #d9d9d9;
+      background-color: #eee;
       border-radius: 50%;
       width: 38px;
       height: 38px;

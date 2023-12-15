@@ -384,7 +384,7 @@ const timer = "осталось ~2 часа";
     border-radius: 100%;
     width: 65px;
     height: 65px;
-    background-color: #D9D9D9;
+    background-color: #eee;
     svg {
       opacity: 0.6;
   }
