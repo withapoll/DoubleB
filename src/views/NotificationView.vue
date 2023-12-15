@@ -28,8 +28,8 @@
 <script setup>
 import NotificationComponent from "@/components/NotificationComponent.vue";
 const greeting = "Уведомления";
-const username = "Андрей Летчфорд";
-const email = "a.letchford@double.com";
+const username = "Андрей Лебедев";
+const email = "a.lebedev@double.com";
 </script>
 
 <style lang="scss" scoped>

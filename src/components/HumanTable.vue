@@ -152,9 +152,9 @@
       </thead>
       <tbody>
         <tr v-for="human in humans" :key="human.id">
-          <td>
-            <img :src="require(`@/assets/humans/${human.image}`)" alt="Human photo" width="50" height="50">
-            {{ human.name }}
+          <td class="human-info">
+            <img class="human-photo" :src="require(`@/assets/humans/${human.image}`)" alt="Human photo" width="50" height="50">
+            <span class="human-name">{{ human.name }}</span>
           </td>
           <td>{{ human.workadress }}</td>
           <td>{{ human.contacts }}</td>
@@ -393,10 +393,24 @@ const humans = ref([
     }
     td {
       text-align: center;
+      align-items: center;
     }
     tr:hover {
       background-color: rgba(0, 0, 0, 0.07);
     }
   }
+  .human-info {
+  display: flex;
+  align-items: center;
+}
+
+.human-photo {
+  margin-right: 15px;
+}
+
+.human-name {
+  text-align: center;
+  width: 90px;
+}
 }
 </style>

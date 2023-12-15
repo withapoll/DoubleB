@@ -45,13 +45,20 @@
   <div class="right-layout">
     <div class="delivery-tracking">
       <div class="card">
-        <h1>{{ delivery_title }}</h1>
+        <div class="card-header">
+          <h1>{{ delivery_title }}</h1>
+          <div class="delivery-code">
+            <p>Полная закупка</p>
+        </div>
+        </div>
         <p class="address">{{ delivery_code }}</p>
         <div class="price">
           <p>Цена</p>
+          <p>{{ delivery_price }}</p>
         </div>
-        <div class="delicery_schedule">
+        <div class="delivery_schedule">
           <p>Расписание</p>
+          <p>{{ delivery_schedule }}</p>
         </div>
         <p class="delivery-status">{{ active_deliveryStatus }}</p>
         <div class="progress-bar">
@@ -120,19 +127,19 @@ onMounted(() => {
         {
           label: 'Молоко',
           data: [10, 15, 7, 10, 15], // replace with actual data
-          backgroundColor: "rgba(221, 225, 68, 1)", 
+          backgroundColor: "rgba(251, 255, 91, 1)", 
           borderRadius: 10,
         },
         {
           label: 'Кофе',
           data: [16, 22, 13, 21, 25], // replace with actual data
-          backgroundColor: "rgba(54, 162, 235, 0.2)", //change color 
+          backgroundColor: "rgba(221, 225, 68, 1)",  
           borderRadius: 10,
         },
         {
           label: 'Закуски ',
           data: [28, 35, 25, 35, 45], // replace with actual data
-          backgroundColor: "rgba(255, 206, 86, 0.2)", //change color 
+          backgroundColor: "rgba(185, 188, 49, 1)",  
           borderRadius: 10,
         }
       ]
@@ -190,6 +197,8 @@ const delivery_title = 'Активный Заказ'
 const storage_title = "Запасы";
 const delivery_code = "GCGKH92129";
 const active_deliveryStatus = "Осуществляется Доставка";
+const delivery_price = '35 000₽';
+const delivery_schedule = "с 12 по 15 октября";
 
 const delivery_company = {
   name: 'Company Name', 
@@ -224,11 +233,14 @@ const timer = "осталось ~2 часа";
 }
 .storage-chart{
   width: 590px;
-  height: 350px;
+  height: 380px;
   background-color: white;
   border: solid 1px rgba(224, 224, 224, 1);
   border-radius: 30px;
   padding: 15px;
+  h3{
+    margin-bottom: 24px;
+  }
 }
 
 .delivery-history {
@@ -307,9 +319,6 @@ const timer = "осталось ~2 часа";
     display: flex;
     gap: 50px;
   }
-  .schedule {
-    color: #808080;
-  }
   .delivery-status {
     display: flex;
     justify-content: center;
@@ -343,6 +352,21 @@ const timer = "осталось ~2 часа";
     // Add your styles for the timer
   }
 }
+ 
+.card-header {
+  display: flex;
+  .delivery-code p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4496E1;
+    background-color: #e8e6e6;
+    width: 140px;
+    height: 38px;
+    border-radius: 15px;
+  }
+}
+ 
 #orderDelivery {
   border-radius: 15px;
   background: #dde144;
@@ -374,5 +398,12 @@ const timer = "осталось ~2 часа";
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 14px;
+}
+
+.price,
+.delivery_schedule {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  gap: 35px;
 }
 </style>
