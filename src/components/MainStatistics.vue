@@ -555,19 +555,6 @@ const users = ref([
         }
       }
     }
-
-    & .user {
-      // user styles
-
-      & .user-image {
-        // user image styles
-      }
-
-      & .user-name,
-      & .user-email {
-        // ser name and email styles
-      }
-    }
   }
 }
 

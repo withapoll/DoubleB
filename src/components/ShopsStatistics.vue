@@ -44,7 +44,7 @@
   </div>
   <div class="right-layout">
     <div class="delivery-tracking">
-      <div class="card">
+      <div class="delivery-card">
         <div class="card-header">
           <h1>{{ delivery_title }}</h1>
           <div class="delivery-code">
@@ -81,7 +81,7 @@
     </div>
 
     <div class="storage-capacity">
-      <div class="card">
+      <div class="storage-card">
         <div class="card-header">
           <div class="card-title">
             <h1>{{ storage_title }}</h1>
@@ -102,13 +102,13 @@
       <p>Кофе</p>
       <p class="count">{{ coffee_count }}</p>
     </div>
-    <p class="delivery-status">{{ storage_deliveryStatus }}</p>
+    <p class="delivery-status">{{ storage_capacity }}</p>
     <div class="progress-bar">
       <div class="progress" :style="{ width: progress + '%' }"></div>
       <div class="arrow">
       </div>
     </div>
-    <p class="timer">{{ timer }}</p>
+    <p class="timer">{{ storage_timer }}</p>
     <button id="orderDelivery" @click="orderDelivery">Заказать Доставку?</button>
   </div>
     </div>
@@ -210,20 +210,21 @@ const delivery_code = "GCGKH92129";
 const active_deliveryStatus = "Осуществляется Доставка";
 const delivery_price = '35 000₽';
 const delivery_schedule = "с 12 по 15 октября";
+const timer = "осталось ~45 минут";
 
 const delivery_company = {
-  name: 'Company Name', 
-  email: 'company@mail.com',
-  logo: require('@/assets/humans/human2.png' )
+  name: 'Primefood', 
+  email: 'food@prime.com',
+  logo: require('@/assets/company.png' ),
 };
 
 
 const storage_address = "ул. Театральный проспект 42б";
 const  milk_count = "15 штук";
 const coffee_count = "25 штук";
-const storage_deliveryStatus = "Осуществляется Доставка";
-const progress = 75;
-const timer = "осталось ~2 часа";
+const storage_capacity = "Осталось мало запасов";
+const progress = 95;
+const storage_timer = "осталось ~20% от всех запасов";
 </script>
 
 <style lang="scss" scoped>
@@ -285,7 +286,86 @@ const timer = "осталось ~2 часа";
   }
 }
 
-.card {
+.storage-card {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: fit-content;
+  height: fit-content;
+  h1 {
+    color: #000;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  p {
+    color: #646464;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .address {
+    color: #808080;
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+  }
+  .icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: #222;
+    background-color: #e8e6e6;
+  }
+  .milk,
+  .coffee {
+    display: flex;
+    gap: 50px;
+  }
+  .delivery-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FF3629;
+    background-color: #e8e6e6;
+    width: 290px;
+    height: 38px;
+    border-radius: 15px;
+    margin-top: 32px;
+  }
+  .progress-bar {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background-color: #000;
+    border-radius: 50px;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    .progress {
+      position: absolute;
+      height: 100%;
+      background-color: #FF3629;
+      border-radius: 50px;
+    }
+  }
+  .timer {
+    color: #808080;
+    display: flex;
+    justify-content: center;
+    // Add your styles for the timer
+  }
+}
+
+.delivery-card{
   border: 1px solid rgba(0, 0, 0, 0.2);
   background-color: #fff;
   border-radius: 50px;
