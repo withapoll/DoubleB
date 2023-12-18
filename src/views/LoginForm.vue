@@ -9,7 +9,6 @@
       </form>
       <button class="register" @click="register">Зарегистрироваться</button>
       <button class="forgot-password" @click="forgotPassword">Забыли пароль?😭</button>
-      <button class="home" @click="goHome">Home</button>
     </div>
     <div class="image-container">
 
@@ -23,16 +22,18 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-const goHome = () => {
-  router.push('/home');
-};
-
 const login = ref('');
 const password = ref('');
 
+//login mechanism JUST FOR THE DEMO, while working on a backend
 const submitForm = () => {
-  // Handle form submission
+  if (login.value === 'a.lebedev@double.com' && password.value === '123456') {
+    router.push('/home');
+  } else {
+    alert('Не верный Логин или Пароль');
+  }
 };
+
 </script>
 
 <style scoped>
@@ -69,7 +70,7 @@ img {
   flex-shrink: 0;
 }
 .image-container {
-  /* Style your image container here */
+  /* Style image container */
 }
 
 .login-button {

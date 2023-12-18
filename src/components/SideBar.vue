@@ -78,7 +78,7 @@ aside {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   margin-top: 35px;
 
   img {
@@ -169,7 +169,7 @@ input[type="text"] {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  margin-top: 90px;
+  margin-top: 80px;
 }
 
 .notification {

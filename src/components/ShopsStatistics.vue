@@ -18,18 +18,18 @@
       </thead>
       <tbody>
         <tr>
-          <td>ООО "Компания"</td>
-          <td>01.01.2023</td>
-          <td>+7 (999) 999-99-99</td>
-          <td>1000</td>
-          <td>Осуществляется Доставка</td>
+          <td>ООО "Primefood"</td>
+          <td>04.11.2023</td>
+          <td>food@prime.com</td>
+          <td>23000₽</td>
+          <td>Доставлено</td>
         </tr>
         <tr>
           <td>ООО "Компания"</td>
-          <td>01.01.2023</td>
-          <td>+7 (999) 999-99-99</td>
+          <td>05.10.2023</td>
+          <td>mail@com</td>
           <td>1000</td>
-          <td>Осуществляется Доставка</td>
+          <td>Доставлено</td>
         </tr>
         <tr>
           <td>ООО "Компания"</td>
@@ -109,11 +109,39 @@
       </div>
     </div>
     <p class="timer">{{ storage_timer }}</p>
-    <button id="orderDelivery" @click="orderDelivery">Заказать Доставку?</button>
+    <!-- The Button -->
+    <button class="orderDelivery"  @click="showModal = true">Заказать доставку?</button>
+
+    <!-- The Modal -->
+    <div v-if="showModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span @click="showModal = false" class="close">&times;</span>
+        <form @submit.prevent="submitOrder">
+          <label for="deliveryCompany">Выбирете поставщика:</label><br>
+          <select id="deliveryCompany" v-model="deliveryCompany">
+            <option disabled value="">Кого вы хотите выбрать?</option>
+            <option>Company 1</option>
+            <option>Company 2</option>
+          </select><br>
+          <label for="milk">Сколько пакетов молока заказать?</label><br>
+          <input type="number" id="milk" v-model="milk"><br>
+          <label for="coffee">Сколько пакетов кофе заказать?</label><br>
+          <input type="number" id="coffee" v-model="coffee"><br>
+          <label for="snacks">Сколько закусок заказать?</label><br>
+          <input type="number" id="snacks" v-model="snacks"><br>
+          <label for="deliveryDate">Выбирите дату доставки:</label><br>
+          <input type="date" id="deliveryDate" v-model="deliveryDate"><br>
+          <label for="price">Цена заказа:</label><br>
+          <input type="text" id="price" v-model="price" readonly><br>
+          <input type="submit" value="Submit Order">
+        </form>
+      </div>
+    </div>
+  </div>
   </div>
     </div>
   </div>
-</div>
 </template>
 
 <script setup>
@@ -225,6 +253,25 @@ const coffee_count = "25 штук";
 const storage_capacity = "Осталось мало запасов";
 const progress = 95;
 const storage_timer = "осталось ~20% от всех запасов";
+
+let showModal = ref(false)
+let deliveryCompany = ref('')
+let milk = ref(0)
+let coffee = ref(0)
+let snacks = ref(0)
+let deliveryDate = ref('')
+let price = ref(generateRandomPrice())
+
+const submitOrder = () => {
+  // Handle the order submission here
+  console.log(`Delivery Company: ${deliveryCompany.value}, Milk: ${milk.value}, Coffee: ${coffee.value}, Snacks: ${snacks.value}, Delivery Date: ${deliveryDate.value}, Price: ${price.value}`)
+  showModal.value = false
+}
+
+function generateRandomPrice() {
+  // Generate a random price between 5000 and 55000
+  return Math.floor(Math.random() * (55000 - 5000 + 1)) + 5000
+}
 </script>
 
 <style lang="scss" scoped>
@@ -269,6 +316,9 @@ const storage_timer = "осталось ~20% от всех запасов";
       border-bottom: 1px solid rgba(224, 224, 224, 1);
       padding: 16px;
       text-align: left;
+      font-family: "Inter", sans-serif;
+      font-weight: medium;
+      font-size: 12px;
     }
     th {
       color: rgba(0, 0, 0, 0.54);
@@ -276,6 +326,8 @@ const storage_timer = "осталось ~20% от всех запасов";
       background-color: rgb(255, 255, 255);
       color: black;
       font-family: "Inter", sans-serif;
+      font-size: 16px;
+      text-align: center;
     }
     td {
       text-align: center;
@@ -440,7 +492,6 @@ const storage_timer = "осталось ~20% от всех запасов";
     color: #808080;
     display: flex;
     justify-content: center;
-    // Add your styles for the timer
   }
 }
  
@@ -478,7 +529,7 @@ const storage_timer = "осталось ~20% от всех запасов";
   }
 }
  
-#orderDelivery {
+.orderDelivery {
   border-radius: 15px;
   background: #dde144;
   padding: 10px 20px;
@@ -516,5 +567,66 @@ const storage_timer = "осталось ~20% от всех запасов";
   font-family: 'Inter', sans-serif;
   display: flex;
   gap: 35px;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+  color: #444;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
 }
 </style>

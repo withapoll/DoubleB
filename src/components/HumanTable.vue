@@ -248,7 +248,7 @@ const handleFileImport = (event) => {
 const headers = ref([
   { text: 'ФИО Сотрудника', icon: 'fas fa-user' },
   { text: 'Место работы', icon: 'fas fa-map-marker-alt' },
-  { text: 'Контакты', icon: 'fas fa-phone' },
+  { text: 'Контакты', icon: 'fas fa-envelope' },
   { text: 'Статус', icon: 'fas fa-info-circle' },
   { text: 'Доход', icon: 'fas fa-dollar-sign' }
 ]);
