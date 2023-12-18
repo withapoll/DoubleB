@@ -3,11 +3,17 @@ Simple CRM App
 
 # App UI
 Home
-<img width="1920" alt="home screen analytics final" src="https://github.com/withapoll/DoubleB-Web/assets/59768263/4cdcb351-95a4-4d42-9c5c-16dffdce2a9b">
-Navigation
-<img width="409" alt="nav bar clear notification" src="https://github.com/withapoll/DoubleB-Web/assets/59768263/e41f8a92-6a76-4b52-8968-32befaf7cc0b">
+![home screen analytics final](https://github.com/withapoll/DoubleB/assets/59768263/9cff7679-0a31-42bf-90e0-b2c486d68f05)
+
+
+Sidebar
+<img width="409" alt="nav bar clear notification" src="https://github.com/withapoll/DoubleB/assets/59768263/ca815675-24a7-4e43-8c8b-8a682913c59b">
+
+
 Components example
-<img width="450" alt="coffee shop card" src="https://github.com/withapoll/DoubleB-Web/assets/59768263/709096b8-4bf2-42c5-b86c-d9c045be0bca">
+![delivery tracking](https://github.com/withapoll/DoubleB/assets/59768263/b5e5a877-6a28-4627-b4c9-5828dafaffe7)
+![storage capacity](https://github.com/withapoll/DoubleB/assets/59768263/b119ae83-36bc-46d0-8cfd-ac7f89707717)
+
 
 
 ## Project setup
