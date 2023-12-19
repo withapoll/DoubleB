@@ -264,6 +264,11 @@ let filteredEmployees = computed(() => {
   }
   return results;
 });
+
+const fileInput = ref(null);
+const importFile = () => {
+  fileInput.value.click();
+};
 const handleFileImport = (event) => {
   const file = event.target.files[0];
   const reader = new FileReader();
