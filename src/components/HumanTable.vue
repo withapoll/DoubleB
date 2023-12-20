@@ -169,6 +169,7 @@
 
 <script setup>
 import { ref, computed } from 'vue';
+import axios from 'axios';
 
 const all_humans = ref([
   {
@@ -228,7 +229,70 @@ const vacation_humans = ref([
 
 ]); 
 
-const humans = ref([
+async function humansLoad() {
+
+try {
+
+  const response = await axios.get('https://localhost:7002/api/staff/');
+
+  alert(response.status);
+
+  const data = response.data;
+
+  alert(JSON.stringify(data));
+
+  let remoteHumans = [];
+
+  data.forEach(human => {
+    remoteHumans.push({
+     // id: human.employeeId,
+      name: human.name, 
+      workadress: human.shopId,
+      contacts: human.contacts,
+      status: human.status,
+      income: human.income,
+      image: "human2.png" 
+    });
+  });
+
+  this.humans = remoteHumans;
+
+} catch (error) {
+
+  console.error(error);
+
+}
+
+}
+
+humansLoad();
+
+// function humansLoad() {
+//   fetch('https://localhost:7002/api/staff/')
+//     .then(response => response.json())
+//     .then(data => {
+//       alert(data)
+//       let remote_humans = [];
+      
+//       // заполняем массив humans данными полученными от API
+//       data.forEach(human => {
+//         remote_humans.push({
+//           id: human.employeeId,
+//           name: human.name,
+//           workadress: human.shopId, 
+//           contacts: human.email,
+//           status: human.status,
+//           income: human.income,
+//         });
+//       });
+
+//       this.employees = humans;
+//     });
+// }
+// humansLoad()
+
+
+let humans = ref([
   { id: 1, name: 'Соня Глуцкова', workadress: 'ул. Театральный проспект 42б', contacts: 's.gluczkova@double.com', status: 'На месте', income: '45 750₽', image: 'human2.png' },
   { id: 2, name: 'Марк Трофимов', workadress: 'ул. Театральный проспект 42б', contacts: 'm.trofimov@double.com', status: 'Отсутствует', income: '35 840₽', image: 'human3.png' },
   { id: 3, name: 'Олег Тин', workadress: 'ул. Театральный проспект 42б', contacts: 'o.tin@double.com', status: 'На месте', income: '52 350₽', image: 'human4.png' },

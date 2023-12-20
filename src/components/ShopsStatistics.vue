@@ -25,18 +25,18 @@
           <td>Доставлено</td>
         </tr>
         <tr>
-          <td>ООО "Компания"</td>
+          <td>ООО "TastyDish"</td>
           <td>05.10.2023</td>
-          <td>mail@com</td>
-          <td>1000</td>
+          <td>dish@tasty.com</td>
+          <td>45000₽</td>
           <td>Доставлено</td>
         </tr>
         <tr>
-          <td>ООО "Компания"</td>
+          <td>ООО "FoodDelivery"</td>
           <td>01.01.2023</td>
-          <td>+7 (999) 999-99-99</td>
-          <td>1000</td>
-          <td>Осуществляется Доставка</td>
+          <td>delivery@food.com</td>
+          <td>12000₽</td>
+          <td>Доставлено</td>
         </tr>
       </tbody>
     </table>
